@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :path => 'admin', :controllers => { registrations: 'admin/user_management' }
 
   root to: "articles#index"
 
