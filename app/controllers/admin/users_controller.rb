@@ -1,8 +1,4 @@
-class Admin::UsersController < AdminController
-
-  layout 'admin'
-
-  before_action :authenticate_user!
+class Admin::UsersController < Admin::AdminController
 
   before_filter :find_user, only: [:edit, :update, :destroy]
   before_filter :build_user, only: [:new, :create, :signup]
