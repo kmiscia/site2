@@ -1,15 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :path => 'admin', :controllers => { registrations: 'admin/user_management' }
-
-  root to: "articles#index"
+  devise_for :users, :path => 'admin', :controllers => { registrations: 'admin/users' }
 
   namespace :admin do |admin|
-    resources :galleries
     resources :articles
     resources :users
-    resources :contents
-    resources :categories
     root :to => "articles#index"
   end
 
