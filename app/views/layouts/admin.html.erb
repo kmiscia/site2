@@ -1,67 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="icon"type="image/png" href="/favicon.ico" />
-  <title><%= SiteSetting.get_value(:site_title) %> admin</title>
-  <%= stylesheet_link_tag("transdmin") %>
-  <!--[if IE 6]><link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/ie6.css" /><![endif]-->
-  <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/ie7.css" /><![endif]-->
-  <%= javascript_include_tag "jquery/jquery_1.6.2_min.js" %>
-  <%= javascript_include_tag "rails.js" %>
-  <%= csrf_meta_tag %>
-  <%= yield :head %>
 </head>
 <body>
-  <div id="wrapper">
-    <ul id="mainNav">
-      <li class="nav login-status">
-        <% if current_user -%>
-        <%= link_to "LOGOUT", :controller => :users, :action => :logout %>
-        <% else -%>
-        <%= link_to "LOGIN", :controller => :users, :action => :login %>
-        <% end -%>
-      </li>
-      <% if current_user -%><li class="nav welcome-message"><span class="nav">Welcome,&nbsp;&nbsp;<%= h(current_user.username) %></span></li><% end -%>
-    </ul>
-    <div>
-      <h2 class="breadcrumb">
-        <%= link_to( 'Admin', '/admin')%>
-        <%= link_to( readable_controller(params[:controller]), :controller => params[:controller], :action => :index)%>
-        <%= link_to( readable_action(params[:action]), :controller => params[:controller], :action => params[:action])%>
-      </h2>
-    </div>
-    <div id="containerHolder">
-      <div id="container">
-        <div id="sidebar">
-          <ul class="sideNav">
-            <% if current_user %>
-            <li><%= link_to('Articles', admin_articles_path) %></li>
-            <li><%= link_to('Galleries', admin_galleries_path) %></li>
-            <li><%= link_to('Users', admin_users_path) %></li>
-            <li><%= link_to('Categories', admin_categories_path) %></li>
-            <li class="last"><%= link_to('Content', admin_contents_path) %></li>
-            <% else %>
-            <li class="last"><%= link_to('Login', admin_users_login_path) %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div id="main-container">
-          <% unless flash.empty? %>
-          <div id="message-container">
-            <% flash.each do |key, value| %>
-            <p class="<%=key%>"><%=h(value)%></p>
-            <% end %>
-          </div>
-          <% end %>
-          <div id="main">
-            <%= yield %>
-          </div>
-        </div>
-        <div class="clear"></div>
-      </div>
-    </div>
-    <p id="footer">Created by Kevin Miscia - <%= link_to 'Email', 'mailto:' << SiteSetting.get_value(:site_email) %></p>
-  </div>
+  <span>The page</span>
 </body>
 </html>
