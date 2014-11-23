@@ -10,10 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require 'admin/transdmin/reset'
- *= require 'admin/transdmin/layout'
- *= require 'admin/transdmin/jNice'
- *= require 'admin/transdmin/hack'
  *= require_tree .
  *= require_self
  */
