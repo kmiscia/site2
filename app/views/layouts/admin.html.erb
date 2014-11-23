@@ -4,8 +4,23 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="icon"type="image/png" href="/favicon.ico" />
   <title>TODO</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
-  <span>The page</span>
+  <div id="wrapper">
+    <ul id="mainNav">
+      <li class="nav login-status">
+        <% if current_admin_user -%>
+          <%= link_to "Logout", destroy_admin_user_session_path, :method => 'delete' %>
+        <% else -%>
+          <%= link_to "Login", new_admin_user_session_url %>
+        <% end -%>
+      </li>
+      <% if current_admin_user -%><li class="nav welcome-message"><span class="nav">Welcome,&nbsp;&nbsp;<%= h(current_admin_user.username) %></span></li><% end -%>
+    </ul>
+  </div>
+  <%= yield %>
 </body>
 </html>
