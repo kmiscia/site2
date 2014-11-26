@@ -1,5 +1,10 @@
 require "rails_helper"
 
 describe Article do
-  it { should belong_to(:user) }
+
+  before(:each) do
+    @article = create(:article)
+  end
+
+  it { should have_many(:comments) }
 end

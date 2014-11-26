@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122144411) do
+ActiveRecord::Schema.define(version: 20141126011554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "annotations", force: true do |t|
+    t.integer  "gallery_image_id", null: false
+    t.string   "body"
+    t.string   "gps_coordinates"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "articles", force: true do |t|
     t.string   "title",       null: false
@@ -26,6 +34,45 @@ ActiveRecord::Schema.define(version: 20141122144411) do
     t.integer  "user_id",     null: false
     t.integer  "category_id"
     t.datetime "posted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "body",       null: false
+    t.integer  "article_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contents", force: true do |t|
+    t.string   "name"
+    t.string   "name_slug"
+    t.text     "body",                         null: false
+    t.boolean  "system",       default: false, null: false
+    t.boolean  "display_name", default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "galleries", force: true do |t|
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gallery_images", force: true do |t|
+    t.integer  "gallery_id", null: false
+    t.string   "name"
+    t.string   "md5"
+    t.integer  "width"
+    t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
