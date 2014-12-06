@@ -1,0 +1,14 @@
+<%= form_for [:admin, @category], :html => {:role => 'form', :class => 'form-horizontal'} do |form| %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :title } do %>
+    <%= form.text_field :name, :class => 'form-control' %>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :created_at } do %>
+    <%= @category.created_at.nil? ? "N/A" : time_format_admin(@category.created_at) %>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :updated_at } do %>
+    <%= @category.updated_at.nil? ? "N/A" : time_format_admin(@category.updated_at) %>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/empty_row" do %>
+    <%= submit_tag 'Save', :class => 'btn btn-default' %>
+  <% end %>
+<% end %>

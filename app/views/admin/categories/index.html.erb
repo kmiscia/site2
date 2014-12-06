@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  <% @categories.each do |category| %>
+  <tr>
+    <td><%= category.name %></td>
+    <td>
+      <%= link_to 'edit', edit_admin_category_path(category) %>
+      <%= link_to 'delete', admin_category_path(category), :confirm => "Are you sure you would like to delete this category?", :class => 'delete', :method => :delete %>
+    </td>
+  </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td><%= link_to 'add', new_admin_category_path, :class => 'add', :method => :get %></td>
+  </tr>
+</table>
