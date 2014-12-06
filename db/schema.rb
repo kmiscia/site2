@@ -25,13 +25,18 @@ ActiveRecord::Schema.define(version: 20141126011554) do
   end
 
   create_table "articles", force: true do |t|
-    t.string   "title",       null: false
+    t.string   "title",                             null: false
     t.string   "header_one"
     t.string   "header_two"
-    t.string   "url",         null: false
+    t.string   "url",                               null: false
     t.text     "description"
-    t.text     "body",        null: false
-    t.integer  "user_id",     null: false
+    t.text     "body",                              null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.boolean  "delta",              default: true, null: false
+    t.integer  "user_id",                           null: false
     t.integer  "category_id"
     t.datetime "posted_at"
     t.datetime "created_at"

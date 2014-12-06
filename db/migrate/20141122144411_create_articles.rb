@@ -9,8 +9,8 @@ class CreateArticles < ActiveRecord::Migration
       t.text :body, null: false
       t.string :photo_file_name
       t.string :photo_content_type
-      t.string :photo_file_size
-      t.string :photo_updated_at
+      t.integer :photo_file_size
+      t.datetime :photo_updated_at
       t.boolean :delta, default: true, null: false
       t.integer :user_id, null: false
       t.integer :category_id

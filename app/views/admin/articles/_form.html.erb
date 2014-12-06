@@ -1,0 +1,56 @@
+<%= form_for [:admin, @article], :html => {:role => 'form', :multipart => true, :class => 'form-horizontal'} do |form| %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :title } do %>
+    <%= form.text_field :title, :class => 'form-control' %>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :url } do %>
+    <%= form.text_field :url, :class => 'form-control' %>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :header_one } do %>
+    <%= form.text_field :header_one, :class => 'form-control' %>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :header_two } do %>
+    <%= form.text_field :header_two, :class => 'form-control' %>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :body } do %>
+    <%= render :partial => "admin/contents/tinymce", :locals => {:form => form, :attribute => :body}%>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :image } do %>
+    <%= form.file_field :photo %>
+  <% end %>
+
+  <% if @article.photo? %>
+    <%= render :layout => "/layouts/admin/form/empty_row" do %>
+      <%= image_tag @article.photo.url(:cropped) %>
+    <% end %>
+
+    <%= render :layout => "/layouts/admin/form/empty_row" do %>
+      <%= link_to "Edit Cropped Image", "#", :id => :edit_current_image %>
+      <%= image_tag @article.photo.url(:original), :id => 'cropbox' %>
+    <% end %>
+  <% end %>
+
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :category } do %>
+    <%= form.select( :category_id, Category.all.collect {|c| [c.name, c.id ]}, {:include_blank => true }) %>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :show_on_site? } do %>
+    <%= check_box_tag 'show_on_site', 'true', !@article.posted_at.nil? %>
+  <% end %>
+
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :created_at } do %>
+    <%= @article.created_at.nil? ? "N/A" : time_format_admin(@article.created_at) %>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :updated_at } do %>
+    <%= @article.updated_at.nil? ? "N/A" : time_format_admin(@article.updated_at) %>
+  <% end %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :posted_at } do %>
+    <%= @article.posted_at.nil? ? "N/A" : time_format_admin(@article.posted_at) %>
+  <% end %>
+
+  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+    <%= form.hidden_field attribute, :id => attribute %>
+  <% end %>
+
+  <%= render :layout => "/layouts/admin/form/empty_row" do %>
+    <%= submit_tag 'Save', :class => 'btn btn-default' %>
+  <% end %>
+<% end %>
