@@ -16,3 +16,6 @@ config/database.yml
 
 # Ignore test coverage files
 coverage/*
+
+public/system/*
+public/tiny_mce/*
