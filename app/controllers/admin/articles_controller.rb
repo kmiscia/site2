@@ -1,20 +1,5 @@
 class Admin::ArticlesController < Admin::BaseController
 
-  PERMITTED_ATTRS = [
-    :title,
-    :header_one,
-    :header_two,
-    :body,
-    :url,
-    :category_id,
-    :photo,
-    :crop_x,
-    :crop_y,
-    :crop_w,
-    :crop_h,
-    :posted_at
-  ]
-
   def index
     @articles = Article.all.order("created_at DESC")
   end
@@ -28,7 +13,6 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def create
-
     @article = Article.new(article_params)
     @article.user_id = current_admin_user.id
 
@@ -66,7 +50,20 @@ class Admin::ArticlesController < Admin::BaseController
   private
 
   def article_params
-    attrs = params.require(:article).permit(PERMITTED_ATTRS)
+    attrs = params.require(:article).permit([
+      :title,
+      :header_one,
+      :header_two,
+      :body,
+      :url,
+      :category_id,
+      :photo,
+      :crop_x,
+      :crop_y,
+      :crop_w,
+      :crop_h,
+      :posted_at
+    ])
     attrs[:posted_at] = params[:show_on_site] ? Time.now : nil
     attrs
   end
