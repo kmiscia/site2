@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   namespace :admin do |admin|
-    root :to => "articles#index"
 
     devise_for :users, :controllers => {
       registrations: 'admin/users/registrations',
@@ -11,6 +10,8 @@ Rails.application.routes.draw do
 
     resources :articles
     resources :categories
+
+    root :to => "articles#index"
   end
 
 end

@@ -46,7 +46,8 @@ RSpec.describe Admin::ArticlesController do
     end
 
     it "warns when it cannot create article" do
-      Article.any_instance.stub(:save_and_process) { false }
+      allow_any_instance_of(Article).to receive(:save_and_process).and_return(false)
+
       expect{ post :create, :article => FactoryGirl.attributes_for(:article) }.to change{Article.count}.by(0)
       expect(response).to render_template("new")
     end
@@ -75,7 +76,7 @@ RSpec.describe Admin::ArticlesController do
     end
 
     it "warns when it cannot destroy article" do
-      Article.any_instance.stub(:destroy) { false }
+      allow_any_instance_of(Article).to receive(:destroy).and_return(false)
 
       expect{ delete :destroy, :id => @article.id }.to change{Article.count}.by(0)
       expect(response).to redirect_to(admin_articles_url)
