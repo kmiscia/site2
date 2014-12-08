@@ -41,7 +41,7 @@ describe Article do
     }))
   end
 
-  it "does process photo during save when not valid" do
+  it "does process photo during save when not valid but are cropping" do
     expect(@article.photo).to_not receive(:reprocess!)
 
     @article.save_and_process(@article.attributes.merge({
@@ -55,7 +55,7 @@ describe Article do
 
   it "does process photo during save when not cropping" do
     expect(@article.photo).to receive(:reprocess!)
-
+    
     @article.save_and_process(@article.attributes.merge({
       crop_x: 100,
       crop_y: 100,
