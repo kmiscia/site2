@@ -32,36 +32,21 @@ describe Article do
   end
 
   it "does not process photo during save when not cropping" do
+    allow(@article).to receive(:cropping?).and_return(false)
     expect(@article.photo).to_not receive(:reprocess!)
-
-    @article.save_and_process(@article.attributes)
-    @article.save_and_process(@article.attributes.merge({
-      crop_x: 100,
-      crop_y: 100
-    }))
+    assert @article.save_and_process
   end
 
-  it "does process photo during save when not valid but are cropping" do
+  it "does not process photo during save when not valid but are cropping" do
+    allow(@article).to receive(:cropping?).and_return(true)
     expect(@article.photo).to_not receive(:reprocess!)
-
-    @article.save_and_process(@article.attributes.merge({
-      title: "",
-      crop_x: 100,
-      crop_y: 100,
-      crop_h: 100,
-      crop_w: 100
-    }))
+    refute @article.save_and_process({ title: "" })
   end
 
-  it "does process photo during save when not cropping" do
+  it "does process photo during save when cropping" do
+    allow(@article).to receive(:cropping?).and_return(true)
     expect(@article.photo).to receive(:reprocess!)
-    
-    @article.save_and_process(@article.attributes.merge({
-      crop_x: 100,
-      crop_y: 100,
-      crop_h: 100,
-      crop_w: 100
-    }))
+    assert @article.save_and_process
   end
 
   it "updates attributes during valid save" do
@@ -73,5 +58,4 @@ describe Article do
     refute @article.save_and_process({ title: ""})
     refute_equal @article.title, "new title"
   end
-
 end

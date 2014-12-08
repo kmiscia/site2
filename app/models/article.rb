@@ -16,10 +16,12 @@ class Article < ActiveRecord::Base
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
-  def save_and_process(attributes)
+  def save_and_process(attributes = {})
     status = update_attributes(attributes)
-    status &&= photo.reprocess! if status && cropping?
+    photo.reprocess! if status && cropping?
     status
+  rescue
+    return false
   end
 
   def cropping?
@@ -28,5 +30,4 @@ class Article < ActiveRecord::Base
     crop_w.present? &&
     crop_h.present?
   end
-
 end
