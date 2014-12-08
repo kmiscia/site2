@@ -1,3 +1,4 @@
+=begin
 require "rails_helper"
 
 describe User do
@@ -22,3 +23,4 @@ describe User do
   it { should validate_presence_of(:encrypted_password) }
 
 end
+=end

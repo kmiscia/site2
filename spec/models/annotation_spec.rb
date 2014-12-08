@@ -1,3 +1,4 @@
+=begin
 require "rails_helper"
 
 describe Annotation do
@@ -9,3 +10,4 @@ describe Annotation do
   it { should belong_to(:gallery_image) }
   it { should allow_value('40.932592,12.345093').for(:gps_coordinates) }
 end
+=end
