@@ -5,10 +5,14 @@
   </tr>
   <% @contents.each do |content| %>
   <tr>
-    <td><%= content.name %></td>
+    <td><%= content.name %><% if content.system? %> - [System]<% end %></td>
     <td>
       <%= link_to 'edit', edit_admin_content_path(content) %>
-      <%= link_to 'delete', admin_content_path(content), :confirm => "Are you sure you would like to delete this content?", :class => 'delete', :method => :delete %>
+      <% if content.system? %>
+        <span class="disable_delete">delete</span>
+      <% else %>
+        <%= link_to 'delete', admin_content_path(content), :confirm => "Are you sure you would like to delete this content?", :class => 'delete', :method => :delete %>
+      <% end %>
     </td>
   </tr>
   <% end %>
