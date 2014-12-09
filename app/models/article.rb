@@ -9,6 +9,7 @@ class Article < ActiveRecord::Base
     :processors => [:cropper]
 
   validates_presence_of :title, :body, :url
+  validates_uniqueness_of :title
 
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 5.megabytes

@@ -1,7 +1,8 @@
 class Content < ActiveRecord::Base
 
-  validates :name, :presence => true, :uniqueness => true
-  validates :name_slug, :uniqueness => true
+  validates_presence_of :name, :body
+  validates_uniqueness_of :name
+  validates_uniqueness_of :name_slug
 
   before_destroy :validate_not_system
 

@@ -41,6 +41,7 @@ RSpec.describe Admin::ArticlesController do
   describe "POST create" do
 
     it "creates and renders articles" do
+      @article.destroy
       expect{ post :create, :article => FactoryGirl.attributes_for(:article) }.to change{Article.count}.by(1)
       expect(response).to redirect_to(admin_articles_url)
     end
