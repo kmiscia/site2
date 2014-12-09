@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Action</th>
+  </tr>
+  <% @contents.each do |content| %>
+  <tr>
+    <td><%= content.name %></td>
+    <td>
+      <%= link_to 'edit', edit_admin_content_path(content) %>
+      <%= link_to 'delete', admin_content_path(content), :confirm => "Are you sure you would like to delete this content?", :class => 'delete', :method => :delete %>
+    </td>
+  </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td><%= link_to 'add', new_admin_content_path, :class => 'add', :method => :get %></td>
+  </tr>
+</table>
