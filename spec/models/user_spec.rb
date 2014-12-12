@@ -1,4 +1,3 @@
-=begin
 require "rails_helper"
 
 describe User do
@@ -8,7 +7,7 @@ describe User do
   end
 
   it { should have_many(:articles).with_foreign_key('posted_by') }
-  it { should have_many(:comments) }
+  #it { should have_many(:comments) }
 
   it { should validate_presence_of(:email) }
   it { should validate_uniqueness_of(:email) }
@@ -23,4 +22,3 @@ describe User do
   it { should validate_presence_of(:encrypted_password) }
 
 end
-=end

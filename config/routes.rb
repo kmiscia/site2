@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :articles
     resources :categories
     resources :contents
+    resources :users
 
     root :to => "articles#index"
   end

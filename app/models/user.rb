@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :articles, :foreign_key => "posted_by"
-  has_many :comments
+  #has_many :comments
 
   validates_length_of :username, :within => 3..40
   validates_length_of :password, :within => 5..40
