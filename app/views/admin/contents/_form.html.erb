@@ -5,19 +5,19 @@
   <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :name_slug } do %>
     <%= form.text_field :name_slug, :class => 'form-control' %>
   <% end %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :system_content? } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :system_content?, :irregular => true } do %>
     <%= form.check_box :system %>
   <% end %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :display_name? } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :display_name?, :irregular => true } do %>
     <%= form.check_box :display_name %>
   <% end %>
   <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :body } do %>
     <%= render :partial => "admin/contents/tinymce", :locals => {:form => form, :attribute => :body}%>
   <% end %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :created_at } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :created_at, :irregular => true } do %>
     <%= @content.created_at.nil? ? "N/A" : time_format_admin(@content.created_at) %>
   <% end %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :updated_at } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :updated_at, :irregular => true } do %>
     <%= @content.updated_at.nil? ? "N/A" : time_format_admin(@content.updated_at) %>
   <% end %>
   <%= render :layout => "/layouts/admin/form/empty_row" do %>

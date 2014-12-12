@@ -14,7 +14,7 @@
   <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :body } do %>
     <%= render :partial => "admin/contents/tinymce", :locals => {:form => form, :attribute => :body}%>
   <% end %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :image } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :image, :irregular => true } do %>
     <%= form.file_field :photo %>
   <% end %>
 
@@ -29,20 +29,20 @@
     <% end %>
   <% end %>
 
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :category } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :category, :irregular => true } do %>
     <%= form.select( :category_id, Category.all.collect {|c| [c.name, c.id ]}, {:include_blank => true }) %>
   <% end %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :show_on_site? } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :show_on_site?, :irregular => true } do %>
     <%= check_box_tag 'show_on_site', 'true', !@article.posted_at.nil? %>
   <% end %>
 
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :created_at } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :created_at, :irregular => true } do %>
     <%= @article.created_at.nil? ? "N/A" : time_format_admin(@article.created_at) %>
   <% end %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :updated_at } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :updated_at, :irregular => true } do %>
     <%= @article.updated_at.nil? ? "N/A" : time_format_admin(@article.updated_at) %>
   <% end %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :posted_at } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :posted_at, :irregular => true } do %>
     <%= @article.posted_at.nil? ? "N/A" : time_format_admin(@article.posted_at) %>
   <% end %>
 
