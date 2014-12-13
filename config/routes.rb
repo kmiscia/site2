@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :categories
     resources :contents
     resources :users
+    resources :galleries
+    resources :gallery_images
 
     root :to => "articles#index"
   end

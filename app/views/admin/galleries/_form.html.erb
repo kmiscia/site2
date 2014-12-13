@@ -1,0 +1,17 @@
+<%= form_for [:admin, @gallery], :html => {:role => 'form', :multipart => true, :class => 'form-horizontal'} do |form| %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :name } do %>
+    <%= form.text_field :name, :class => 'form-control' %>
+  <% end %>
+  
+  <%= form.fields_for :gallery_images do |gallery_image_form| %>
+    <%= render :partial => "gallery_image_fields", :locals => { :f => gallery_image_form } %>
+  <% end %>
+  
+  <%= render :layout => "/layouts/admin/form/empty_row" do %>
+    <%= link_to_add_association 'Add Image', form, :gallery_images %>
+  <% end %>
+  
+  <%= render :layout => "/layouts/admin/form/empty_row" do %>
+    <%= submit_tag 'Save', :class => 'btn btn-default' %>
+  <% end %>
+<% end %>

@@ -17,6 +17,9 @@ gem 'rmagick', '2.13.2'
 # Ruby based cron management
 gem 'whenever', '0.7.3'
 
+# For nested forms
+gem "cocoon"
+
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
