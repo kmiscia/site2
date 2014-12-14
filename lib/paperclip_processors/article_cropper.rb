@@ -1,5 +1,5 @@
 module Paperclip
-  class Cropper < Thumbnail
+  class ArticleCropper < Thumbnail
     def transformation_command
       if crop_command
         crop_command

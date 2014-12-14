@@ -1,7 +1,7 @@
 <% irregular ||= false %>
 <div class="form-group<% if form.object.errors.has_key?(attribute) %> has-error<% end %>">
   <% if defined?(attribute) %>
-    <%= form.label attribute, :class => 'col-sm-2 control-label' %>
+    <%= label_tag attribute, attribute.to_s.humanize.titleize, :class => 'col-sm-2 control-label' %>
   <% else %>
     <label class='col-sm-2 control-label'></label>
   <% end %>

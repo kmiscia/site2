@@ -1,5 +1,5 @@
 <%= form_for [:admin, @gallery], :html => {:role => 'form', :multipart => true, :class => 'form-horizontal'} do |form| %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :name } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :gallery_name } do %>
     <%= form.text_field :name, :class => 'form-control' %>
   <% end %>
   
@@ -8,7 +8,7 @@
   <% end %>
   
   <%= render :layout => "/layouts/admin/form/empty_row" do %>
-    <%= link_to_add_association 'Add Image', form, :gallery_images %>
+    <%= link_to_add_association 'Add Image', form, :gallery_images, add_fields_html_options %>
   <% end %>
   
   <%= render :layout => "/layouts/admin/form/empty_row" do %>

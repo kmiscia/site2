@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
 
   has_attached_file :photo,
     :styles => { :cropped => "100%" },
-    :processors => [:cropper]
+    :processors => [:article_cropper]
 
   validates_presence_of :title, :body, :url
   validates_uniqueness_of :title

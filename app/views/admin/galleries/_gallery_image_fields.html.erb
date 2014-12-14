@@ -1,13 +1,13 @@
-<%= render :layout => "/layouts/admin/form/row", :locals => { :form => f, :attribute => :name } do %>
+<%= render :layout => "/layouts/admin/form/row", :locals => { :form => f, :attribute => name_label_text(f.index) } do %>
   <%= f.text_field :name, :class => 'form-control' %>
 <% end %>
 
-<%= render :layout => "/layouts/admin/form/row", :locals => { :form => f, :attribute => :photo, :irregular => true } do %>
+<%= render :layout => "/layouts/admin/form/row", :locals => { :form => f, :attribute => photo_label_text(f.index), :irregular => true } do %>
   <%= f.file_field :photo %>
 <% end %>
 
 <% if f.object.photo? %>
   <%= render :layout => "/layouts/admin/form/empty_row" do %>
-    <%= image_tag f.object.photo.url %>
+    <%= image_tag f.object.photo.url(:resized) %>
   <% end %>
 <% end %>
