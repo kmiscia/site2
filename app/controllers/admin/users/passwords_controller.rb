@@ -1,2 +1,3 @@
-class Admin::Users::PasswordsController < Admin::Users::BaseController
+class Admin::Users::PasswordsController < Devise::PasswordsController
+  layout nil
 end

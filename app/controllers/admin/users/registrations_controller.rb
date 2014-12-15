@@ -1,4 +1,6 @@
-class Admin::Users::RegistrationsController < Admin::Users::BaseController
+class Admin::Users::RegistrationsController < Devise::RegistrationsController
+
+  layout nil
 
   private
 

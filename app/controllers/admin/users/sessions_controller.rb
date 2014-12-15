@@ -1,2 +1,3 @@
-class Admin::Users::SessionsController < Admin::Users::BaseController
+class Admin::Users::SessionsController < Devise::SessionsController
+  layout nil
 end
