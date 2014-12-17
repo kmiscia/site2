@@ -67,19 +67,22 @@ ActiveRecord::Schema.define(version: 20141126011554) do
   end
 
   create_table "galleries", force: true do |t|
-    t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "gallery_images", force: true do |t|
-    t.integer  "gallery_id", null: false
+    t.integer  "gallery_id",         null: false
     t.string   "name"
-    t.string   "md5"
     t.integer  "width"
     t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.string   "photo_file_size"
+    t.time     "photo_updated_at"
   end
 
   create_table "users", force: true do |t|
