@@ -14,4 +14,17 @@ describe GalleryImage do
   it "defines styles" do
     assert GalleryImage::STYLES.is_a?(Hash)
   end
+  
+  it "does not have styles for new gallery images" do
+    @gallery_image = build(:gallery_image)
+    GalleryImage::STYLES.all? do |style, dimensions|
+      @gallery_image.photo.exists?(style)
+    end
+  end
+  
+  it "has a photo for each style on save" do
+    GalleryImage::STYLES.each do |style, dimensions|
+      assert @gallery_image.photo.exists?(style)
+    end
+  end
 end
