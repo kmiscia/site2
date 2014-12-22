@@ -1,6 +1,9 @@
 class GalleryImage < ActiveRecord::Base
   belongs_to :gallery
   
+  has_many :annotations, :dependent => :destroy
+  accepts_nested_attributes_for :annotations
+  
   STYLES = {
     resized: "800x600",
     v_320_500: "320x500",

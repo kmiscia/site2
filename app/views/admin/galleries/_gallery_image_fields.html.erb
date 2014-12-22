@@ -11,3 +11,11 @@
     <%= image_tag f.object.photo.url(:resized) %>
   <% end %>
 <% end %>
+
+<%= f.fields_for :annotations do |annotation_form| %>
+  <%= render :partial => "annotation_fields", :locals => { :f => annotation_form } %>
+<% end %>
+
+<%= render :layout => "/layouts/admin/form/empty_row" do %>
+  <%= link_to_add_association 'Add Annotation', f, :annotations, add_fields_html_options %>
+<% end %>

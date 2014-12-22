@@ -1,0 +1,26 @@
+<%= render :layout => "/layouts/admin/form/row", :locals => { :form => f, :attribute => :body } do %>
+  <div class="col-lg-10">
+    <%= f.text_field :body, :class => 'form-control' %>
+  </div>
+<% end %>
+
+<%= render :layout => "/layouts/admin/form/row", :locals => { :form => f, :attribute => :gps_coordinates } do %>
+  <fieldset class="gllpLatlonPicker">
+    <div class="col-xs-5 gps_search">
+      <%= text_field_tag :longitude, "", :class => 'form-control gllpSearchField' %>  
+    </div>
+    <%= button_tag({:type => 'button', :class => 'gllpSearchButton btn btn-default' }) do %>
+      Search
+    <% end %>
+    <div class="gllpMap" style="width: 500px; height: 250px; margin: 15px">Google Maps</div>
+    <div class="col-xs-3">
+      <%= f.label :latitude %>
+      <%= f.text_field :latitude, :class => 'form-control gllpLatitude' %>
+    </div>
+    <div class="col-xs-3">
+      <%= f.label :longitude %>
+      <%= f.text_field :longitude, :class => 'form-control gllpLongitude' %>
+    </div>
+    <input type="hidden" class="gllpZoom" value="3"/>
+  </fieldset>
+<% end %>

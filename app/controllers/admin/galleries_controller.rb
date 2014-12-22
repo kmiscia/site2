@@ -50,6 +50,20 @@ class Admin::GalleriesController < Admin::BaseController
   private
 
   def gallery_params
-    attrs = params.require(:gallery).permit(:name, gallery_images_attributes: [:id, :name, :photo, :_destroy])
+    attrs = params.require(:gallery).permit(
+      :name, 
+      gallery_images_attributes: [
+        :id, 
+        :name, 
+        :photo, 
+        :_destroy,
+        annotations_attributes: [ 
+          :latitude, 
+          :longitude, 
+          :body,
+          :_destroy
+        ] 
+      ]
+    )
   end
 end
