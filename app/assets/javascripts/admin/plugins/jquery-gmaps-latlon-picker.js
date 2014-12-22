@@ -13,7 +13,7 @@
  * 
  */
 
-(function($) {
+//(function($) {
 
 // for ie9 doesn't support debug console >>>
 if (!window.console) window.console = {};
@@ -230,14 +230,16 @@ var GMapsLatLonPicker = (function() {
 	return publicfunc;
 });
 
+/*
 $(document).ready( function() {
 	$(".gllpLatlonPicker").each(function() {
 		(new GMapsLatLonPicker()).init( $(this) );
 	});
 });
+*/
 
 $(document).bind("location_changed", function(event, object) {
 	console.log("changed: " + $(object).attr('id') );
 });
 
-}(jQuery));
+//}(jQuery));
