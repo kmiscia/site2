@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+/log/*
 /tmp
 
 # Ignore files with credentials in them
@@ -19,3 +19,6 @@ coverage/*
 
 public/system/*
 public/tiny_mce/*
+
+db/sphinx/development/*
+config/development.sphinx.conf
