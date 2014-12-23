@@ -1,8 +1,4 @@
 class GalleryImage < ActiveRecord::Base
-  belongs_to :gallery
-  
-  has_many :annotations, :dependent => :destroy
-  accepts_nested_attributes_for :annotations
   
   STYLES = {
     resized: "800x600",
@@ -19,6 +15,11 @@ class GalleryImage < ActiveRecord::Base
   }
   
   has_attached_file :photo, :styles => STYLES
+  
+  has_many :annotations, :dependent => :destroy
+  accepts_nested_attributes_for :annotations
+
+  belongs_to :gallery
 
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 10.megabytes
