@@ -7,7 +7,7 @@
 <%= render :layout => "/layouts/admin/form/row", :locals => { :form => f, :attribute => :gps_coordinates } do %>
   <fieldset class="gllpLatlonPicker">
     <div class="col-xs-5 gps_search">
-      <%= text_field_tag :longitude, "", :class => 'form-control gllpSearchField' %>  
+      <%= text_field_tag :search, "", :class => 'form-control gllpSearchField' %>  
     </div>
     <%= button_tag({:type => 'button', :class => 'gllpSearchButton btn btn-default' }) do %>
       Search
