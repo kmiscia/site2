@@ -20,12 +20,12 @@
 
   <% if @article.photo? %>
     <%= render :layout => "/layouts/admin/form/empty_row" do %>
-      <%= image_tag @article.photo.url(:cropped) %>
+      <%= image_tag @article.photo.url(:cropped, timestamp: false) %>
     <% end %>
 
     <%= render :layout => "/layouts/admin/form/empty_row" do %>
       <%= link_to "Edit Cropped Image", "#", :id => :edit_current_image %>
-      <%= image_tag @article.photo.url(:original), :id => 'cropbox' %>
+      <%= image_tag @article.photo.url(:original, timestamp: false), :id => 'cropbox' %>
     <% end %>
   <% end %>
 
