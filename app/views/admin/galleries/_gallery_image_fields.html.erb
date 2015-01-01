@@ -2,7 +2,7 @@
   <%= f.text_field :name, :class => 'form-control' %>
 <% end %>
 
-<%= render :layout => "/layouts/admin/form/row", :locals => { :form => f, :attribute => photo_label_text(f.index), :irregular => true } do %>
+<%= render :layout => "/layouts/admin/form/row", :locals => { :form => f, :attribute => photo_label_text(f.index), :non_text => true } do %>
   <%= f.file_field :photo %>
 <% end %>
 

@@ -1,11 +1,11 @@
-<% irregular ||= false %>
+<% non_text ||= false %>
 <div class="form-group<% if form.object.errors.has_key?(attribute) %> has-error<% end %>">
   <% if defined?(attribute) %>
-    <%= label_tag attribute, attribute.to_s.humanize.titleize, :class => 'col-sm-2 control-label' %>
+    <%= label_tag attribute, attribute.to_s.humanize.titleize, label_html_options(non_text) %>
   <% else %>
-    <label class='col-sm-2 control-label'></label>
+    <%= label_tag '', '', label_html_options(non_text) %>
   <% end %>
-  <div class="col-sm-10<% if irregular %> irregular<% end %>">
+  <div class="col-sm-10">
     <%= yield %>
     <% if form.object.errors.has_key?(attribute) %>
       <span class="glyphicon glyphicon-remove form-control-feedback"></span>

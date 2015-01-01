@@ -2,10 +2,10 @@
   <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :title } do %>
     <%= form.text_field :name, :class => 'form-control' %>
   <% end %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :created_at, :irregular => true } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :created_at, :non_text => true } do %>
     <%= @category.created_at.nil? ? "N/A" : time_format_admin(@category.created_at) %>
   <% end %>
-  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :updated_at, :irregular => true } do %>
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :updated_at, :non_text => true } do %>
     <%= @category.updated_at.nil? ? "N/A" : time_format_admin(@category.updated_at) %>
   <% end %>
   <%= render :layout => "/layouts/admin/form/empty_row" do %>
