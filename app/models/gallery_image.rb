@@ -15,6 +15,7 @@ class GalleryImage < ActiveRecord::Base
   }
   
   has_attached_file :photo, :styles => STYLES
+  process_in_background :photo
   
   has_many :annotations, :dependent => :destroy
   accepts_nested_attributes_for :annotations

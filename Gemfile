@@ -4,15 +4,17 @@ source 'https://rubygems.org'
 gem 'thinking-sphinx', '3.1.1'
 gem 'mysql2','0.3.12'
 
-gem 'paperclip'
+# Image attachement and background processing
+gem 'resque'
+gem 'delayed_paperclip'
+gem 'rmagick', '2.13.2'
+
+# User management
 gem 'devise'
 gem 'pg'
 
 # For twitter workaround
 gem 'oauth'
-
-# For image processing
-gem 'rmagick', '2.13.2'
 
 # Ruby based cron management
 gem 'whenever', '0.7.3'

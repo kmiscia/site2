@@ -8,7 +8,7 @@
 
 <% if f.object.photo? %>
   <%= render :layout => "/layouts/admin/form/empty_row" do %>
-    <%= image_tag f.object.photo.url(:resized) %>
+    <%= image_tag f.object.photo.url(:resized, timestamp: false) %>
   <% end %>
 <% end %>
 

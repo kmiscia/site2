@@ -1,6 +1,10 @@
+require 'resque/server'
+
 Rails.application.routes.draw do
 
   namespace :admin do |admin|
+
+    mount Resque::Server.new, at: "/resque"
 
     devise_for :users, :controllers => {
       registrations: 'admin/users/registrations',
