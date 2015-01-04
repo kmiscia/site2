@@ -17,13 +17,10 @@
       <div class="navbar-header navbar-text" style="margin: 5px 0">
         <%= image_tag("m.png") %>
       </div>
-      <div class="navbar-header navbar-text">
-        <span href="#">iscia.net</span>
-      </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <% if current_admin_user -%>
-            <li class="navbar-text">Welcome <%= current_admin_user.username %></li>
+            <li class="navbar-text">Welcome, <%= current_admin_user.username %></li>
             <li><%= link_to "Logout", destroy_admin_user_session_path, :method => 'delete' %></li>
           <% else -%>
             <li><%= link_to "Login", new_admin_user_session_url %></li>
@@ -42,7 +39,7 @@
           <li class="<%= side_nav_class('contents') %>"><%= link_to('Content', admin_contents_path) %></li>
           <li class="<%= side_nav_class('users') %>"><%= link_to('Users', admin_users_path) %></li>
           <li class="<%= side_nav_class('galleries') %>"><%= link_to('Galleries', admin_galleries_path) %></li>
-          <li class="<%= side_nav_class('jobs') %>"><%= link_to('Jobs', '/admin/resque') %></li>
+          <li class="<%= side_nav_class('jobs') %>"><%= link_to('Jobs', admin_jobs_path) %></li>
         </ul>
       </div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

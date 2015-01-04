@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :galleries
     resources :gallery_images
 
+    get 'jobs', :to => "jobs#index"
+
     root :to => "articles#index"
   end
 
