@@ -41,6 +41,7 @@ RSpec.describe Admin::CategoriesController do
   describe "POST create" do
 
     it "creates and renders categories" do
+      Category.destroy_all
       expect{ post :create, :category => FactoryGirl.attributes_for(:category) }.to change{Category.count}.by(1)
       expect(response).to redirect_to(admin_categories_url)
     end
