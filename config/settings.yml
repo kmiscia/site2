@@ -2,3 +2,13 @@ site_email: "kmiscia@miscia.net"
 site_title: "miscia.net"
 site_domain: "miscia.net"
 articles_per_page: 5
+
+google_analytics_key: 'UA-28487446-1'
+
+twitter_api_url: "api.twitter.com/1.1/lists/statuses.json"
+twitter_slug: "miscianet"
+twitter_owner_screen_name: "misch331"
+twitter_per_page: 200
+twitter_page: 1
+twitter_include_entities: false
+twitter_include_rts: false

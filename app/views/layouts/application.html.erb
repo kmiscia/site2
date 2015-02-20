@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Site2</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <%= render :partial => "/site/head" %>	
+	<body>
+    <div class="ribbon"><%= link_to("Backstage Pass", "/technology_stack", {:target => "_blank"}) %></div>
+		<div id="wrapper">
+			<div id="header" class="container">
+        <%= render :partial => "/site/homepage/menu" %>
+			</div>
+			<div id="page" class="clearfix">
+				<%= yield %>
+			</div>
+		</div>
+    <%= render :partial => "/site/footer" %>
+    <%= render :partial => "/site/ga" %>
+	</body>
 </html>

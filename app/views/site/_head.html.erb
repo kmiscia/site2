@@ -1,0 +1,16 @@
+<head profile="http://www.w3.org/2005/10/profile">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="icon"type="image/png" href="/favicon.ico" />
+  <title><%= SETTINGS[:site_title] %></title>
+  <link href='http://fonts.googleapis.com/css?family=Parisienne|Limelight|Ewert|Voltaire|Jura:600' rel='stylesheet' type='text/css'>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%# javascript_include_tag "jquery/jquery-migrate-1.2.1.js" %>
+  <%#= javascript_include_tag "rails" %>
+
+  <%= yield :head %>
+</head>

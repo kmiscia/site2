@@ -2,6 +2,8 @@ require 'resque/server'
 
 Rails.application.routes.draw do
 
+  root :to => 'site#index'
+
   namespace :admin do |admin|
 
     mount Resque::Server.new, at: "/resque"

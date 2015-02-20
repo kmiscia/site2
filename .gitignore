@@ -13,6 +13,7 @@
 
 # Ignore files with credentials in them
 config/database.yml
+config/secrets.yml
 
 # Ignore test coverage files
 coverage/*
