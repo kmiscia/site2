@@ -1,0 +1,17 @@
+<div class="sidebar_container">
+  <%= link_to("/", :class => 'sidebar_heading') do %>
+    <div class="sidebar_heading_image">
+      <div class="background" style="background-image:url(assets/application/filters/filter_heading.gif)"></div>
+    </div>
+  <% end %>
+  <div class="sidebar_window">
+    <% @categories.each do |category| %>
+      <%= link_to({:controller => 'articles', :action => 'index', :filter_mask => category.id}, :remote => true, :class => 'filter_link') do %>
+        <div class="filter">
+          <div id="filter_image_<%= category.id %>" class="filter_image" style="background-image:url(assets/application/filters/filter_<%= category.name.downcase %>.gif)"></div>
+        </div>
+      <% end%>
+      <div class="filter_spacer"></div>
+    <% end %>
+  </div>
+</div>

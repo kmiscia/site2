@@ -5,10 +5,12 @@ articles_per_page: 5
 
 google_analytics_key: 'UA-28487446-1'
 
-twitter_api_url: "api.twitter.com/1.1/lists/statuses.json"
-twitter_slug: "miscianet"
-twitter_owner_screen_name: "misch331"
-twitter_per_page: 200
-twitter_page: 1
-twitter_include_entities: false
-twitter_include_rts: false
+twitter:
+  api_host: "api.twitter.com"
+  api_path: "/1.1/lists/statuses.json"
+  slug: "miscianet"
+  owner_screen_name: "misch331"
+  per_page: 200
+  page: 1
+  include_entities: false
+  include_rts: false

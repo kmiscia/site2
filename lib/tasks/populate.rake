@@ -17,10 +17,10 @@ namespace :dev do
     
     # Categories
     Category.destroy_all
-    3.times do |index|
-      index += 1
-      Category.create(name: "Category #{index}")
-    end
+    Category.create(name: "snowboard")
+    Category.create(name: "running")
+    Category.create(name: "assorted")
+    Category.create(name: "web")
     
     # Articles
     Article.destroy_all

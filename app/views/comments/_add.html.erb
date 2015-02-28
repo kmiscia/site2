@@ -1,0 +1,19 @@
+<div class="comments-add">
+	<div class="comment">
+	<%= form_for Comment.new, :remote => true, :html => {:'data-type' => 'html', :class => "create_comment_form"} do |c| %>	
+		<div class="honeypot_field">
+			<input type="text" id="email" name="email"/>
+		</div>
+		<fieldset>
+    	<p>
+				<label>I want to indiscriminately yell the following...</label>
+				<%= c.text_area( :body, :cols => 60, :rows => 5, :class => 'text_input') %>
+			</p>
+			<p>
+				<input type="submit" class="form-button comments-button" value="Post" />
+			</p>
+		</fieldset>
+		<%= hidden_field_tag :article_id, article.id -%>
+	<% end -%>
+	</div>
+</div>

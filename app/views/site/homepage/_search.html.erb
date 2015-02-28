@@ -1,0 +1,15 @@
+<div class="sidebar_container" class="clearfix">
+  <%= link_to("/", :class => 'sidebar_heading') do %>
+    <div class="sidebar_heading_image">
+      <div class="background" style="background-image:url(assets/application/filters/explore_heading.gif)"></div>
+    </div>
+  <% end %>
+  <div class="sidebar_window">
+    <%= form_tag '/articles', :remote => true do %>
+      <div>
+        <%= text_field_tag 'search_text', t("homepage.search_placeholder_text"), :class => 'text_input' %>
+        <%= submit_tag 'GO', :class => 'form-button' %>
+      </div>
+    <% end %>
+  </div>
+</div>  

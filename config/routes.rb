@@ -4,6 +4,13 @@ Rails.application.routes.draw do
 
   root :to => 'site#index'
 
+  resources :comments
+  resources :articles, :only => :index
+  
+  namespace :site do
+    get 'tweets'
+  end
+
   namespace :admin do |admin|
 
     mount Resque::Server.new, at: "/resque"

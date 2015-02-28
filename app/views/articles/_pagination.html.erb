@@ -1,0 +1,14 @@
+<% if @articles.present? %>
+  <%= content_for :head do %>
+    <link href='http://fonts.googleapis.com/css?family=Diplomata' rel='stylesheet' type='text/css'>
+  <% end %>
+  <div id="article_pagination">
+    <% (1..(@articles.total_entries.to_f / @articles.per_page.to_f).ceil).each do |page| %>
+      <% if page == @articles.current_page %>
+        <span class="current"><%= page %></span>
+      <% else %>
+        <%= link_to( page.to_s, {:controller => 'articles', :action => 'index', :page => page}, :remote => true ) %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

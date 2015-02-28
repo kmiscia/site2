@@ -1,6 +1,6 @@
 class Admin::Users::RegistrationsController < Devise::RegistrationsController
 
-  layout nil
+  layout 'admin/application'
 
   private
 

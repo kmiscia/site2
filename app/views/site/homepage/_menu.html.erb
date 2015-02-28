@@ -1,10 +1,10 @@
 <div id="menu">
 	<ul>
-		<li class="first"><%= link_to(image_tag("homepage/headings/home.gif"), '/', :alt => 'Take me home!')%></li>
-		<li><%= link_to(image_tag("homepage/headings/abstract.gif"), '/page/abstract', :alt => 'More about me')%></li>
-		<li><%= link_to(image_tag("homepage/headings/images.gif"), "#", :alt => 'Interesting images from my travels')%></li>
-		<li><%= link_to(image_tag("homepage/headings/miscellany.gif"), '/page/miscellany', :alt => 'Absolutely nothing useful what so ever')%></li>
-		<li><%= image_tag("homepage/headings/contact.gif")%></li>
+		<li class="first"><%= link_to(image_tag("application/headings/home.gif"), '/', :alt => 'Take me home!')%></li>
+		<li><%= link_to(image_tag("application/headings/abstract.gif"), '/page/abstract', :alt => 'More about me')%></li>
+		<li><%= link_to(image_tag("application/headings/images.gif"), "#", :alt => 'Interesting images from my travels')%></li>
+		<li><%= link_to(image_tag("application/headings/miscellany.gif"), '/page/miscellany', :alt => 'Absolutely nothing useful what so ever')%></li>
+		<li><%= image_tag("application/headings/contact.gif")%></li>
     <li class="social_media">
       <%= render :partial => "site/homepage/social_media", :locals => { :name => 'twitter', :url => 'http://twitter.com/#!/misch331' } %>
     </li>

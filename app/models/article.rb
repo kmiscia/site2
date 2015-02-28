@@ -1,19 +1,20 @@
 class Article < ActiveRecord::Base
+  extend Articles::Filter
 
   belongs_to :user
   belongs_to :category
   has_many :comments
 
   has_attached_file :photo,
-    :styles => { :cropped => "100%" },
-    :processors => [:article_cropper]
+    styles: { cropped: "100%" },
+    processors: [ :article_cropper ]
 
   validates_presence_of :title, :body, :url
   validates_uniqueness_of :title
 
   validates_attachment_presence :photo
-  validates_attachment_size :photo, :less_than => 5.megabytes
-  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
+  validates_attachment_size :photo, less_than: 5.megabytes
+  validates_attachment_content_type :photo, content_type: ['image/jpeg', 'image/png', 'image/gif']
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
