@@ -18,4 +18,13 @@ describe ApplicationHelper do
   it "returns inactive when not on controller" do
     assert_equal side_nav_class('not test'), "inactive"
   end
+  
+  it "returns an empty string when it can't find the content body" do
+    assert_equal content_body(:no_content), ""
+  end
+  
+  it "returns the appropriate content body" do
+    content = create(:content, name_slug: "test_content", body: "This is the test <b>body</b>")
+    assert_equal content_body(:test_content), "This is the test <b>body</b>"
+  end
 end
