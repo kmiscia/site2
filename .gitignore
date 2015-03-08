@@ -23,3 +23,5 @@ public/tiny_mce/*
 
 db/sphinx/development/*
 config/development.sphinx.conf
+db/sphinx/test/*
+config/test.sphinx.conf
