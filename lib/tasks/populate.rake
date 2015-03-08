@@ -3,8 +3,26 @@ namespace :dev do
   desc "Seeds a DB with data for dev work"
   task :populate => :environment do 
     
+    # Contents
+    Content.delete_all
+    Content.create(
+      name: "Footer Left",
+      name_slug: "footer_left",
+      body: "Welcome to a truly unique and engaging website. And by unique and engaging, I mean not at all. There are many sites like this, but this one is mine. It was created by myself, and is a place I like to test out new technology and collect interesting info. Take a look around and check out some of the things I enjoy.",   
+      system: true,
+      display_name: true
+    )
+    
+    Content.create(
+      name: "Footer Middle",
+      name_slug: "footer_middle",
+      body: "<p>My name is Kevin Miscia and I'm a software developer and wannabe runner currently hanging my hat in Philadelphia, PA. I'm a Villanova alum with experience in a variety of different web frameworks, and when I'm not out and about on the trails of Philadelphia, I'm making a home for myself in the Ruby on Rails community. <a href=\"../../../page/abstract\">I must know more...</a></p>",   
+      system: true,
+      display_name: true
+    )
+    
     # Users
-    User.destroy_all
+    User.delete_all
     3.times do |index|
       index += 1
       User.create(
@@ -16,14 +34,14 @@ namespace :dev do
     end
     
     # Categories
-    Category.destroy_all
+    Category.delete_all
     Category.create(name: "snowboard")
     Category.create(name: "running")
     Category.create(name: "assorted")
     Category.create(name: "web")
     
     # Articles
-    Article.destroy_all
+    Article.delete_all
     12.times do |index|
       index += 1
       article = Article.create(
@@ -48,6 +66,8 @@ namespace :dev do
     end
     
     #Galleries
+    GalleryImage.delete_all
+    Gallery.delete_all
     5.times do |gallery_index|
       gallery_index += 1
       
@@ -64,5 +84,6 @@ namespace :dev do
       end
     end
 
+    Rake::Task["ts:index"].invoke
   end
 end
