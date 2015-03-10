@@ -1,4 +1,4 @@
-ThinkingSphinx::Index.define :article, :with => :active_record do
+ThinkingSphinx::Index.define :article, :with => :active_record, :delta => true do
   indexes title
   indexes header_one
   indexes header_two
@@ -14,5 +14,4 @@ ThinkingSphinx::Index.define :article, :with => :active_record do
   has posted_at
   has created_at
   where 'posted_at IS NOT NULL'
-  set_property :delta => true
 end
