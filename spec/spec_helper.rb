@@ -10,6 +10,7 @@ RSpec.configure do |config|
   
   config.include Paperclip::Shoulda::Matchers
   config.include Devise::TestHelpers, :type => :controller
+  
   config.raise_errors_for_deprecations!
 
   config.expect_with :rspec do |expectations|
@@ -20,10 +21,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   
-  config.default_formatter = 'doc' if config.files_to_run.one?
+  #config.formatter = :documentation 
   config.profile_examples = 10
   config.order = :random
-  
-  # Use the specified formatter
-  config.formatter = :documentation 
 end
