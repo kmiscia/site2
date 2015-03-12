@@ -22,6 +22,6 @@ RSpec.configure do |config|
   end
   
   #config.formatter = :documentation 
-  config.profile_examples = 10
-  config.order = :random
+  #config.profile_examples = 10
+  #config.order = :random
 end
