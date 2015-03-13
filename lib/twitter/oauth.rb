@@ -2,11 +2,15 @@ module Twitter
   class Oauth
     class << self
     
+      def body
+        call.body
+      end
+    
+      private
+      
       def call
         twitter_oauth_access_token.request(:get, twitter_api_url)
       end
-      
-      private
       
       def twitter_api_url
         URI::HTTPS.build({

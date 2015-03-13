@@ -12,4 +12,12 @@ RSpec.describe SiteController do
       assert_equal assigns(:articles).map(&:id), [@article.id]
     end
   end
+  
+  describe "GET tweets" do
+    it "attempts to retrive tweets" do
+      expect(Twitter::Oauth).to receive(:body)
+      get :tweets
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end

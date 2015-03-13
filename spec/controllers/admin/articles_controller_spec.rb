@@ -33,7 +33,7 @@ RSpec.describe Admin::ArticlesController do
       get :new
 
       assert(assigns(:article))
-      assert(assigns(:article).new_record?)
+      expect(assigns(:article)).to be_a_new(Article)
       expect(response).to render_template("new")
     end
   end

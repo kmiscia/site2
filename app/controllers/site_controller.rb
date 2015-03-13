@@ -11,6 +11,6 @@ class SiteController < ApplicationController
   end
 
   def tweets
-    render :text => Twitter::Oauth.call.body
+    render :text => Twitter::Oauth.body
   end
 end
