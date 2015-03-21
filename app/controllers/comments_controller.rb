@@ -1,39 +1,22 @@
 class CommentsController < ApplicationController
   
   before_filter :honeypot_check
+  before_filter :require_xhr
   
-  respond_to :html, :xml, :json
+  respond_to :html
   
   def create
     
     comment = Comment.create(comment_params)
 
     if comment.valid?
-      
-      #TODO - How do we handle email errors and timeouts?
-      CommentMailer.comment_email(comment).deliver
-      
-      respond_with do |format|
-        format.html do
-          if request.xhr?
-            render :partial => "/comments/comment", :locals => { :comment => comment }, :layout => false, :status => :created
-          else
-            redirect_to :root
-          end
-        end
-      end
+      render partial: "/comments/comment", 
+        locals: { comment: comment }, 
+        layout: false, 
+        status: :created
     else
-      respond_with do |format|
-        format.html do
-          if request.xhr?
-            render :json => comment.errors, :status => :unprocessable_entity
-          else
-            render :action => :new, :status => :unprocessable_entity
-          end
-        end
-      end
+      render nothing: true
     end
-
   end
     
   private

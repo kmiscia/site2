@@ -9,6 +9,6 @@ class Content < ActiveRecord::Base
   private
 
   def validate_not_system
-    !self.system
+    !self.system?
   end
 end

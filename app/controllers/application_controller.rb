@@ -14,6 +14,15 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  protected
+  
+  def require_xhr
+    unless request.xhr?
+      redirect_to :root
+      false
+    end
+  end
+  
   private
   
   # The default filter mask if to show all categories, which
