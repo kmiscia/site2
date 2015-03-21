@@ -44,6 +44,9 @@ namespace :dev do
     Article.delete_all
     12.times do |index|
       index += 1
+      
+      category = Category.all[index % 4]
+      
       article = Article.create(
         title: "Article #{index}",
         header_one: "Header #{index}",
@@ -51,18 +54,11 @@ namespace :dev do
         url: "http://www.#{index}.com",
         description: "Article description #{index}. Article description #{index}. Article description #{index}. Article description #{index}.",
         body: "<b>This is the article body</b>",
-        photo: File.new("#{Rails.root}/lib/tasks/populate/article_one.jpg"),
+        photo: File.new("#{Rails.root}/lib/tasks/populate/#{category.name}.jpg"),
         user: User.first,
-        category: Category.first, 
+        category: category,
         posted_at: Time.now
       )
-      
-      article.save_and_process({
-        crop_x: 20,
-        crop_y: 20, 
-        crop_w: 594,
-        crop_h: 95  
-      })
     end
     
     #Galleries
@@ -79,7 +75,7 @@ namespace :dev do
         GalleryImage.create(
           gallery: gallery,
           name: "Gallery Image #{gallery_image_index}",
-          photo: File.new("#{Rails.root}/lib/tasks/populate/article_one.jpg")
+          photo: File.new("#{Rails.root}/lib/tasks/populate/gallery_image.jpg")
         )
       end
     end
