@@ -22,7 +22,9 @@ module Articles
     private
     
     def category_ids(filter_mask)
-      categories = Category.all.reject { |category| category.id & filter_mask.to_i == 0 }
+      categories = Category.all.select do |category| 
+        category.id & filter_mask.to_i == category.id
+      end
       categories.map(&:id)
     end
     

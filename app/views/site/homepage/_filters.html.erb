@@ -6,7 +6,7 @@
   <% end %>
   <div class="sidebar_window">
     <% @categories.each do |category| %>
-      <%= link_to({:controller => 'articles', :action => 'index', :filter_mask => category.id}, :remote => true, :class => 'filter_link') do %>
+      <%= link_to({:controller => 'articles', :action => 'index', :filter_mask => category.id, :remote => true }, :class => 'filter_link') do %>
         <div class="filter">
           <div id="filter_image_<%= category.id %>" class="filter_image" style="background-image:url(assets/application/filters/filter_<%= category.name.downcase %>.gif)"></div>
         </div>
