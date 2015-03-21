@@ -1,6 +1,6 @@
 <div class="comments-add">
 	<div class="comment">
-	<%= form_for Comment.new, :remote => true, :html => {:'data-type' => 'html', :class => "create_comment_form"} do |c| %>	
+	<%= form_for Comment.new, :remote => true, :html => { :class => "create_comment_form" } do |c| %>	
 		<div class="honeypot_field">
 			<input type="text" id="email" name="email"/>
 		</div>
@@ -13,7 +13,7 @@
 				<input type="submit" class="form-button comments-button" value="Post" />
 			</p>
 		</fieldset>
-		<%= hidden_field_tag :article_id, article.id -%>
+		<%= c.hidden_field :article_id, :value => article.id -%>
 	<% end -%>
 	</div>
 </div>

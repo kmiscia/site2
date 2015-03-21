@@ -19,6 +19,9 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  # Deliver emails in dev mode with smtp
+  config.action_mailer.delivery_method = :smtp
+
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 

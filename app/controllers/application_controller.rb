@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
   def calculate_filter_mask
     return session[:filter_mask] unless params[:filter_mask]
     
-    byebug
-    
     session[:filter_mask] ||= default_filter_mask
     if session[:filter_mask].to_i & params[:filter_mask].to_i == params[:filter_mask].to_i
       session[:filter_mask] -= params[:filter_mask].to_i

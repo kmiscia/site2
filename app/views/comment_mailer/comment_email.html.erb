@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>A new comment from <%= @comment.user ? @comment.user.username : 'Guest' %> was added to article "<%= @comment.article.title %> (id = <%= @comment.article.id %>)"</p>
+    <p>Comment: "<%= @comment.body %>"</p>
+  </body>
+</html>
