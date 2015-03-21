@@ -47,7 +47,7 @@ namespace :dev do
       
       category = Category.all[index % 4]
       
-      article = Article.create(
+      article = Article.create({
         title: "Article #{index}",
         header_one: "Header #{index}",
         header_two: "Header #{index}",
@@ -58,7 +58,14 @@ namespace :dev do
         user: User.first,
         category: category,
         posted_at: Time.now
-      )
+      })
+      
+      3.times do |comment_index|
+        Comment.create({
+          body: "This is comment #{comment_index} for #{article.title}",
+          article: article
+        })
+      end
     end
     
     #Galleries
