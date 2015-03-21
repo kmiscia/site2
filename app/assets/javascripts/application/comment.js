@@ -10,8 +10,12 @@ $(document).ready(function(){
 
   $('.create_comment_form').bind("ajax:success", function(evt, data, status, xhr){
     $("ul", $(evt.target).parents(".comments-container")).append(xhr.responseText);
-    $comments_link = $(".comments" ,$(this).parents(".article_body"))
+    
+    $comments_link = $(".comments" , $(this).parents(".article_body"))
     $comments_link.html($comments_link.html().replace(/[0-9+]/, parseInt($comments_link.html().match(/[0-9+]/)) + 1))  
+    
+    $comments_body = $(".text_input" , $(this).parents(".article_body"))
+    $comments_body.val("")
   });
 
 });
