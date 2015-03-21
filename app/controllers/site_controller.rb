@@ -6,7 +6,10 @@ class SiteController < ApplicationController
   #before_filter :calculate_filter_mask
   
   def index
-    @articles = Article.filter(session[:filter_mask], params)
+    @articles = Article.filter({
+      search_text: params[:search_text],
+      page: params[:page]
+    })
     @categories = Category.all
   end
 

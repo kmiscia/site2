@@ -18,7 +18,7 @@ RSpec.configure do |config|
     ThinkingSphinx::Test.start_with_autostop
   end
 
-  #config.before(:each) do |example|
-  #  index if example[:js]
-  #end
+  config.before(:each) do |example|
+    index# if example[:js]
+  end
 end

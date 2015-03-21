@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 # Thinking Sphinx
-gem 'thinking-sphinx', '3.1.1'
-gem 'mysql2','0.3.12'
+gem 'thinking-sphinx', '3.1.3'
+gem 'mysql2','0.3.18'
 
 # Image attachement and background processing
 gem 'resque'

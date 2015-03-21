@@ -5,7 +5,7 @@ FactoryGirl.define do
 
   factory :article do
     association :user
-    title "Article Title"
+    sequence(:title) { |n| "Article #{n} Title" }
     header_one "Article Header One"
     header_two "Article Header Two"
     url "http://www.testurl.com"
