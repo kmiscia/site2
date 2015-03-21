@@ -32,7 +32,7 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'byebug'
+  gem 'byebug', '3.5.1'
   gem 'rspec-rails', '3.2.1'
   gem 'capybara'
   gem 'capybara-webkit'
