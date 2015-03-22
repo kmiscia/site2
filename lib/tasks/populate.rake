@@ -63,7 +63,7 @@ namespace :dev do
       
       category = Category.all[index % 4]
       
-      article = Article.create({
+      article = Article.new({
         title: "Article #{index}",
         header_one: "Header #{index}",
         header_two: "Header #{index}",
@@ -76,6 +76,9 @@ namespace :dev do
         posted_at: Time.now
       })
       
+      p "Creating #{article} #{index}"
+      article.save
+      
       3.times do |comment_index|
         Comment.create({
           body: "This is comment #{comment_index} for #{article.title}",
@@ -83,7 +86,7 @@ namespace :dev do
         })
       end
     end
-    
+
     #Galleries
     GalleryImage.delete_all
     Gallery.delete_all
@@ -95,11 +98,15 @@ namespace :dev do
       4.times do |gallery_image_index|
         gallery_image_index += 1
       
-        GalleryImage.create(
-          gallery: gallery,
-          name: "Gallery Image #{gallery_image_index}",
+        gallery_image = GalleryImage.new({
+          gallery: Gallery.first, 
+          name: "Gallery Image", 
           photo: File.new("#{Rails.root}/lib/tasks/populate/gallery_image.jpg")
-        )
+        })
+      
+        p "Creating #{gallery_image.to_s}"
+      
+        gallery_image.save
       end
     end
 

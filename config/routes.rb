@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'images', to: 'galleries#index'
   
   resources :pages
-  get '/pages/:name_slug', to: 'pages#show'
+  get '/page/:name_slug', to: 'pages#show'
   
   namespace :site do
     get 'tweets'

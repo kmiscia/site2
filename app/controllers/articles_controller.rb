@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   def index
     
     @articles = Article.filter({
+      search_text: params[:search_text],
       filter_mask: session[:filter_mask],
       page: params[:page]
     })
