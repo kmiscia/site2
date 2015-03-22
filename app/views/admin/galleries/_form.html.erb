@@ -3,6 +3,10 @@
     <%= form.text_field :name, :class => 'form-control' %>
   <% end %>
   
+  <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :description } do %>
+    <%= form.text_field :description, :class => 'form-control' %>
+  <% end %>
+  
   <%= form.fields_for :gallery_images do |gallery_image_form| %>
     <%= render :partial => "gallery_image_fields", :locals => { :f => gallery_image_form } %>
   <% end %>

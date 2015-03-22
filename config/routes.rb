@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   resources :comments
   resources :articles, :only => :index
   
+  resources :galleries
+  get 'images', to: 'galleries#index'
+  
+  resources :pages
+  get '/pages/:name_slug', to: 'pages#show'
+  
   namespace :site do
     get 'tweets'
   end

@@ -1,8 +1,6 @@
 require 'twitter/oauth'
 
-class SiteController < ApplicationController
-  
-  layout 'application'
+class SiteController < BaseController
   
   def index
     @articles = Article.filter( filter_mask: session[:filter_mask] )

@@ -1,0 +1,9 @@
+<section class="Collage effect-parent">
+  <% gallery.gallery_images.each do |gallery_image| %>
+    <div class="Image_Wrapper" <% if gallery_image.annotations_text.present?   %> data-caption="<%= gallery_image.annotations_text %>" <% end %>>
+      <%= image_tag(gallery_image.photo.url(gallery_image.size, timestamp: false), { width: gallery_image.width, height: gallery_image.height }) %>
+    </div>
+  <% end %>
+</section>
+
+

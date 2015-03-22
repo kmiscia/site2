@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126011554) do
+ActiveRecord::Schema.define(version: 20150321220427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 20141126011554) do
   create_table "annotations", force: true do |t|
     t.integer  "gallery_image_id", null: false
     t.string   "body"
-    t.string   "gps_coordinates"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
   end
 
   create_table "articles", force: true do |t|
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 20141126011554) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "description"
   end
 
   create_table "gallery_images", force: true do |t|
@@ -81,8 +83,8 @@ ActiveRecord::Schema.define(version: 20141126011554) do
     t.datetime "updated_at"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
-    t.string   "photo_file_size"
     t.time     "photo_updated_at"
+    t.integer  "photo_file_size"
   end
 
   create_table "users", force: true do |t|

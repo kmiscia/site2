@@ -1,0 +1,8 @@
+<% @contents.each do |content| %>
+	<% if content.display_name %>
+	  <h3><%= h(content.name) %></h3>
+	<% end %>
+	<div class="page_section">
+	  <%= content.body.html_safe %>
+  </div>
+<% end %>
