@@ -16,7 +16,7 @@ class GalleryImagePresenter < SimpleDelegator
   end
   
   def size
-    display_styles = GalleryImage::STYLES.delete_if { |key, value| key == :resize }
+    display_styles = GalleryImage::STYLES.delete_if { |key, value| key == :resized }
     @size ||= display_styles.keys.sample.to_s
   end
   
