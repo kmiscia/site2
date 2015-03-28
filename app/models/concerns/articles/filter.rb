@@ -23,7 +23,7 @@ module Articles
     
     def category_ids(filter_mask)
       categories = Category.all.select do |category| 
-        category.id & filter_mask.to_i == category.id
+        category.filter_mask & filter_mask.to_i == category.filter_mask
       end
       categories.map(&:id)
     end

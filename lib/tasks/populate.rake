@@ -51,10 +51,10 @@ namespace :dev do
     
     # Categories
     Category.delete_all
-    Category.create(id: 1, name: "snowboard")
-    Category.create(id: 2, name: "running")
-    Category.create(id: 4, name: "assorted")
-    Category.create(id: 8, name: "web")
+    Category.create(name: "snowboard")
+    Category.create(name: "running")
+    Category.create(name: "assorted")
+    Category.create(name: "web")
     
     # Articles
     Article.delete_all

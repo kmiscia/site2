@@ -42,7 +42,7 @@ var filter_image_out = function(el){
 
 $(document).ready(function(){
   
-  $('.filter_link').bind('ajax:success', function(evt, data, status, xhr){
+  $(document).on('ajax:success', '.sidebar_window', function(evt, data, status, xhr) {
     $('#article_list').hide().html(xhr.responseText).fadeIn('slow');
   });
   
