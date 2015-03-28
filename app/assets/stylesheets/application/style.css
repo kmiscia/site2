@@ -66,7 +66,7 @@ a img {border: none; }
 }
 
 #header {
-	width: 900px;
+	width: 1000px;
 	height: 120px;
 	margin: 0 auto;
 	padding: 0px 50px;
@@ -117,15 +117,16 @@ a img {border: none; }
 
 #menu {
 	float: right;
-	width: 900px;
+	width: 1000px;
 	height: 90px;
 	margin: 0 auto;
 	padding: 0;
 }
 
 #menu ul {
-	float: right;
-	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
 	padding: 55px 0px 0px 0px;
 	list-style: none;
 	line-height: normal;
@@ -148,7 +149,7 @@ a img {border: none; }
   }
 
 #page {
-	width: 900px;
+	width: 1000px;
 	margin: 0 auto;
 	padding: 20px 20px;
 	background: #000000;
@@ -161,7 +162,7 @@ a img {border: none; }
 
 #content {
 	float: left;
-	width: 580px;
+	width: 680px;
 	padding: 0px;
 }
 
@@ -184,7 +185,7 @@ a img {border: none; }
 .comments {
 	display: block;
 	float: left;
-	width: 125px;
+	width: 135px;
 	height: 25px;
 	padding: 2px 0px 0px 0px;
 	text-align: center;
@@ -407,8 +408,8 @@ a img {border: none; }
   background-position: 0px 0px;
   background-repeat:no-repeat;
   margin-bottom: 20px;
-  width:594px;
-  height:95px;
+  width: 700px;
+  height: 100px;
 }
 
 .dyn_info {
@@ -432,6 +433,7 @@ div.sidebar_window {
 }
 
 .article_body {
+	font-size: 14px;
   display: none;
   color: #E0E0E0;
 }

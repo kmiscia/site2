@@ -17,7 +17,7 @@ $(document).ready(function(){
       $("#cropbox").Jcrop({
         onChange: update_crop,
         onSelect: update_crop,
-        setSelect: [0, 0, 594, 95]
+        setSelect: [0, 0, 700, 100]
       }).show();
     }
   });

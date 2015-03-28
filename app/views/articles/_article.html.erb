@@ -1,6 +1,6 @@
 <div class="article_wrapper">
   <div id="article_<%= article.id %>" class="article">
-    <div class="article_overlay" style="background-image:url(<%= article.photo.url(:original, timestamp: false) %>)">
+    <div class="article_overlay" style="background-image:url(<%= article.photo.url(:cropped, timestamp: false) %>)">
       <div class="overlay_el whitebg"></div>
       <div class="overlay_el label" style="<%= article_title_font(article_index)%>"><%= article.title %></div>
     </div>

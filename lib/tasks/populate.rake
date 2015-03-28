@@ -77,7 +77,7 @@ namespace :dev do
       })
       
       p "Creating #{article} #{index}"
-      article.save
+      article.save_and_process
       
       3.times do |comment_index|
         Comment.create({
