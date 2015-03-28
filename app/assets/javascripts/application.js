@@ -14,3 +14,6 @@
 //= require_tree ./application
 //= require bootstrap-sprockets
 //= require cocoon
+//= require application/galleria/galleria-1.4.2.min.js
+//= require application/galleria/galleria.classic.min.js
+//= require application/galleria/gallery.js
