@@ -3,6 +3,8 @@ site_title: "miscia.net"
 site_domain: "miscia.net"
 articles_per_page: 5
 
+screenshots_dir: /screenshots
+
 google_analytics_key: 'UA-28487446-1'
 
 twitter:

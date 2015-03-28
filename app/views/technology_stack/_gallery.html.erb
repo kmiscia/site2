@@ -1,0 +1,5 @@
+<div class="gallery_container" style="height: 500px">
+  <% @screenshots.each_with_index do |gallery_image, index| %>  
+    <img src="<%= relative_screenshots_path(gallery_image) %>">
+  <% end %>
+</div>

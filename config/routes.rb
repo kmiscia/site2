@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :pages
   get '/page/:name_slug', to: 'pages#show'
   
+  get '/technology_stack', to: 'technology_stack#index'
+  
   namespace :site do
     get 'tweets'
   end
