@@ -2,6 +2,9 @@ require 'delegate'
  
 class AnnotationPresenter < SimpleDelegator
   
+  include ActionView::Helpers::UrlHelper
+  include ActionView::Helpers::OutputSafetyHelper
+  
   def gps_link
     return "" if gps_coordinates.blank?
     link_to(gps_coordinates, gps_link_url, :target => "_blank") 
@@ -19,14 +22,14 @@ class AnnotationPresenter < SimpleDelegator
   
   def gps_coordinates
     formatted_gps = []
-    formatted_gps << "#{model.latitude_degrees.to_i}&deg;"
-    formatted_gps << "#{model.latitude_hours.to_i}'"
-    formatted_gps << "#{model.latitude_minutes.to_i}\""
-    formatted_gps << "#{model.latitude_cardinal},"
-    formatted_gps << "#{model.longitude_degrees.to_i}&deg;"
-    formatted_gps << "#{model.longitude_hours.to_i}'"
-    formatted_gps << "#{model.longitude_minutes.to_i}\""
-    formatted_gps << "#{model.longitude_cardinal}"
+    formatted_gps << "#{latitude_degrees.to_i}&deg;"
+    formatted_gps << "#{latitude_hours.to_i}'"
+    formatted_gps << "#{latitude_minutes.to_i}\""
+    formatted_gps << "#{latitude_cardinal},"
+    formatted_gps << "#{longitude_degrees.to_i}&deg;"
+    formatted_gps << "#{longitude_hours.to_i}'"
+    formatted_gps << "#{longitude_minutes.to_i}\""
+    formatted_gps << "#{longitude_cardinal}"
     raw("(#{formatted_gps.join(" ")})")
   end
   
