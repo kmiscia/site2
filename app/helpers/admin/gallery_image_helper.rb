@@ -4,7 +4,7 @@ module Admin::GalleryImageHelper
   # containing the save button and the add link itself.
   def add_fields_html_options
     html_options = {}
-    html_options["data-association-insertion-node"] = ".form-group:nth-last-child(2)"
+    html_options["data-association-insertion-node"] = "#add_image"
     html_options["data-association-insertion-method"] = "before"
     html_options
   end

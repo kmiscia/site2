@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'http://maps.googleapis.com/maps/api/js?sensor=false' %>
+
 <%= form_for [:admin, @gallery], :html => {:role => 'form', :multipart => true, :class => 'form-horizontal'} do |form| %>
   <%= render :layout => "/layouts/admin/form/row", :locals => { :form => form, :attribute => :gallery_name } do %>
     <%= form.text_field :name, :class => 'form-control' %>
@@ -11,9 +13,11 @@
     <%= render :partial => "gallery_image_fields", :locals => { :f => gallery_image_form } %>
   <% end %>
   
-  <%= render :layout => "/layouts/admin/form/empty_row" do %>
-    <%= link_to_add_association 'Add Image', form, :gallery_images, add_fields_html_options %>
-  <% end %>
+  <div id="add_image">
+    <%= render :layout => "/layouts/admin/form/empty_row" do %>
+      <%= link_to_add_association 'Add Image', form, :gallery_images, add_fields_html_options %>
+    <% end %>
+  </div>
   
   <%= render :layout => "/layouts/admin/form/empty_row" do %>
     <%= submit_tag 'Save', :class => 'btn btn-default' %>
