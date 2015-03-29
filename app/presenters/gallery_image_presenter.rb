@@ -9,10 +9,10 @@ class GalleryImagePresenter < SimpleDelegator
   end
   
   def annotations_text
-    annoations = annotations.collect do |annotation|
+    annotations_text = annotations.collect do |annotation|
       "#{annotation.body} #{annotation.gps_link}"
     end
-    annotations.join(". ")
+    annotations_text.join(". ")
   end
   
   def size
