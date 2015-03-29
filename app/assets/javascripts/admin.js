@@ -12,5 +12,6 @@
 *
 *= require_tree ./shared
 *= require_tree ./admin
+*= require cocoon
 *= require_self
 */
