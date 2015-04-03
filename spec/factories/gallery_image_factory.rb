@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :gallery_image do
+  factory :gallery_image do |gallery_image|
     name "Test Gallery Image"
     association :gallery, :factory => :gallery
     photo { fixture_file_upload(Rails.root.join('spec/fixtures/test_image.png'), 'image/png') }

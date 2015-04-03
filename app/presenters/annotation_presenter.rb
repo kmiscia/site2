@@ -33,6 +33,8 @@ class AnnotationPresenter < SimpleDelegator
     raw("(#{formatted_gps.join(" ")})")
   end
   
+  private
+  
   def latitude_degrees
     latitude.to_i
   end

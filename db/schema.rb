@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150328212401) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "filter_mask", null: false
+    t.integer  "filter_mask"
   end
 
   add_index "categories", ["filter_mask"], name: "index_categories_on_filter_mask", unique: true, using: :btree

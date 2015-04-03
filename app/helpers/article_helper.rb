@@ -5,12 +5,12 @@ module ArticleHelper
   end
   
   def article_fonts
-    {
-      1 => "font-family: 'Parisienne', cursive;",
-      2 => "font-family: 'Limelight', cursive;",
-      3 => "font-family: 'Ewert', cursive;",
-      4 => "font-family: 'Voltaire', sans-serif;",
-      5 => "font-family: 'Jura', sans-serif;"
-    }
+    [
+      "font-family: 'Parisienne', cursive;", 
+      "font-family: 'Limelight', cursive;", 
+      "font-family: 'Ewert', cursive;", 
+      "font-family: 'Voltaire', sans-serif;", 
+      "font-family: 'Jura', sans-serif;"
+    ]
   end
 end

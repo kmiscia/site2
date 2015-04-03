@@ -2,12 +2,6 @@ require 'delegate'
  
 class GalleryImagePresenter < SimpleDelegator
   
-  def annotations
-    model.annotations.collect do |annotation|
-      AnnotationPresenter.new(annotation)
-    end
-  end
-  
   def annotations_text
     annotations_text = annotations.collect do |annotation|
       "#{annotation.body} #{annotation.gps_link}"
@@ -32,8 +26,12 @@ class GalleryImagePresenter < SimpleDelegator
     end
   end
   
-  def model
-    __getobj__
+  private
+  
+  def annotations
+    __getobj__.annotations.collect do |annotation|
+      AnnotationPresenter.new(annotation)
+    end
   end
   
 end

@@ -29,6 +29,7 @@ describe Article do
   describe "#filter" do
     
     it "returns an article" do
+      sleep(3)
       expect(Article.filter).to include(@article)
     end
     
@@ -39,11 +40,12 @@ describe Article do
       end
       
       it "returns no articles filtering by another category" do
-        expect(Article.filter(filter_mask: category_dogs.id)).to be_empty
+        expect(Article.filter(filter_mask: category_dogs.filter_mask)).to be_empty
       end
       
       it "returns the article filtering by the category" do
-        filtered_articles = Article.filter(filter_mask: category_cats.id)
+        sleep(3)
+        filtered_articles = Article.filter(filter_mask: category_cats.filter_mask)
         expect(filtered_articles).to include(@article)
       end
     end
@@ -56,18 +58,20 @@ describe Article do
       end
       
       it "returns one article filtering by one category" do
-        expect(Article.filter(filter_mask: category_cats.id)).to include(@article)
+        sleep 3
+        expect(Article.filter(filter_mask: category_cats.filter_mask)).to include(@article)
       end
       
       it "returns both articles filtering by both categories" do
-        filter_mask = category_cats.id + category_dogs.id
+        sleep 3
+        filter_mask = category_cats.filter_mask + category_dogs.filter_mask
         filtered_articles = Article.filter(filter_mask: filter_mask)
         expect(filtered_articles).to include(@article)
         expect(filtered_articles).to include(@article_two)
       end
       
       it "returns no articles when filtering by another category" do
-        expect(Article.filter(filter_mask: category_birds.id)).to be_empty
+        expect(Article.filter(filter_mask: category_birds.filter_mask)).to be_empty
       end
       
     end

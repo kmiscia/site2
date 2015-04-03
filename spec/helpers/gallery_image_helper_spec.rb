@@ -5,7 +5,7 @@ describe Admin::GalleryImageHelper do
 
   it "specifies add field html options" do
     assert_equal add_fields_html_options, {
-      "data-association-insertion-node" => ".form-group:nth-last-child(2)",
+      "data-association-insertion-node" => "#add_image",
       "data-association-insertion-method" => "before"
     }
   end
