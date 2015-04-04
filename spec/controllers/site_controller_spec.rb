@@ -9,7 +9,7 @@ RSpec.describe SiteController do
   describe "GET index" do
     it "assigns and renders articles" do
       get :index
-      sleep(3)
+      sleep(3) # https://github.com/kmiscia/site2/issues/13
       assert_equal assigns(:articles).map(&:id), [@article.id]
     end
   end

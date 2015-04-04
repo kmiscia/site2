@@ -19,8 +19,9 @@ class Article < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   def save_and_process(attributes = {})
-    status = update_attributes(attributes)
-    photo.reprocess! if status && cropping?
+    if status = update_attributes(attributes)
+      photo.reprocess! if cropping?
+    end
     status
   rescue
     return false
