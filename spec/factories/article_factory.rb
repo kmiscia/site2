@@ -13,5 +13,21 @@ FactoryGirl.define do
     body "This is the article body."
     posted_at Time.now - 5
     photo { fixture_file_upload(Rails.root.join('spec/fixtures/test_image.png'), 'image/png') }
+  
+    factory :snowboarding_article do
+      association :category, :factory => :snowboarding_category
+    end
+    
+    factory :assorted_article do
+      association :category, :factory => :assorted_category
+    end
+    
+    factory :running_article do
+      association :category, :factory => :running_category
+    end
+    
+    factory :web_article do
+      association :category, :factory => :web_category
+    end
   end
 end

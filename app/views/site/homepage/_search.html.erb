@@ -1,7 +1,7 @@
 <div class="sidebar_container" class="clearfix">
   <%= link_to("/", :class => 'sidebar_heading') do %>
     <div class="sidebar_heading_image">
-      <div class="background" style="background-image:url(assets/application/filters/explore_heading.gif)"></div>
+      <div class="background" style="background-image:url(<%= asset_path("application/filters/explore_heading.gif") %>)"></div>
     </div>
   <% end %>
   <div class="sidebar_window">

@@ -15,13 +15,19 @@
 config/database.yml
 config/secrets.yml
 
+config/development.sphinx.conf
+config/test.sphinx.conf
+config/production.sphinx.conf
+
 # Ignore test coverage files
 coverage/*
 
 public/system/*
 public/tiny_mce/*
+public/assets_test/*
 
 db/sphinx/development/*
-config/development.sphinx.conf
 db/sphinx/test/*
-config/test.sphinx.conf
+db/sphinx/production/*
+
+

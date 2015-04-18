@@ -49,13 +49,6 @@ namespace :dev do
       )
     end
     
-    # Categories
-    Category.delete_all
-    Category.create(name: "snowboard")
-    Category.create(name: "running")
-    Category.create(name: "assorted")
-    Category.create(name: "web")
-    
     # Articles
     Article.delete_all
     12.times do |index|

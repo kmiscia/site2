@@ -26,6 +26,11 @@ Rails.application.configure do
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
+  # kmiscia 4/5/15 > I guess Rails 4 does not offer the ability to create
+  # non fingerprinted assets, so we need to request them with the fingerprint
+  # if we're going to be precompiling assets in test (for capybara)
+  config.assets.digest = true
+
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
@@ -33,6 +38,9 @@ Rails.application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  config.action_controller.asset_host = "file://#{::Rails.root}/public/"
+  config.assets.prefix = 'assets_test'
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

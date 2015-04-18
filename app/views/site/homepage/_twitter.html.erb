@@ -1,7 +1,7 @@
 <div class="sidebar_container">
   <%= link_to("/", :class => 'sidebar_heading') do %>
     <div class="sidebar_heading_image">
-      <div class="background" id="twitter_heading_image_background" style="background-image:url(assets/application/filters/twitter_heading.gif)"></div>
+      <div class="background" id="twitter_heading_image_background" style="background-image:url(<%= asset_path('application/filters/twitter_heading.gif') %>)"></div>
     </div>
   <% end %>
   <div class="sidebar_window" style="display:block">

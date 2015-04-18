@@ -1,6 +1,7 @@
 require 'devise'
 require "paperclip/matchers"
 require 'simplecov'
+require 'capybara/rspec'
 
 SimpleCov.start 'rails'
 
@@ -13,6 +14,12 @@ RSpec.configure do |config|
   
   config.raise_errors_for_deprecations!
 
+  config.before(:suite) do
+    Rails.application.load_seed
+    %x[bundle exec rake assets:clean]
+    %x[bundle exec rake assets:precompile]
+  end
+  
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
