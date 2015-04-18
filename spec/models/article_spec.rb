@@ -3,10 +3,7 @@ require_relative "../support/thinking_sphinx"
 
 describe Article do
 
-  before(:each) do
-    @article = create(:article)
-    ThinkingSphinx::Test.index 'article_core', 'article_delta'
-  end
+  before(:each) { @article = create(:article) }
 
   let(:category_cats) { create(:category, name: "Cats") }
   let(:category_dogs) { create(:category, name: "Dogs") }
@@ -20,15 +17,23 @@ describe Article do
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:url) }
 
-  describe "ArticleCropper" do
-    it "builds the crop_command" do
+  describe "#cropping?" do
+    
+    it "is not cropping with no cropping attributes" do
+      refute @article.cropping?
+    end
+
+    it "is not cropping with some cropping attributes" do
+      @article.crop_x = 100
+      refute @article.cropping?
+    end
+
+    it "is cropping with all cropping attributes" do
       @article.crop_x = 100
       @article.crop_y = 100
       @article.crop_w = 100
       @article.crop_h = 100
-      byebug
-      @article.save_and_process
-      expect(@article.photo.crop_command).to eql("hello")
+      assert @article.cropping?
     end
   end
 
@@ -44,12 +49,39 @@ describe Article do
       allow(@article).to receive(:cropping?).and_return(true)
       expect(@article.save_and_process).to be(false)
     end
+    
+    it "does not process photo during save when not cropping" do
+      allow(@article).to receive(:cropping?).and_return(false)
+      expect(@article.photo).to_not receive(:reprocess!)
+      assert @article.save_and_process
+    end
+
+    it "does not process photo during save when not valid but are cropping" do
+      allow(@article).to receive(:cropping?).and_return(true)
+      expect(@article.photo).to_not receive(:reprocess!)
+      refute @article.save_and_process({ title: "" })
+    end
+
+    it "does process photo during save when cropping" do
+      allow(@article).to receive(:cropping?).and_return(true)
+      expect(@article.photo).to receive(:reprocess!)
+      assert @article.save_and_process
+    end
+    
+    it "updates attributes during valid save" do
+      assert @article.save_and_process({ title: "new title"})
+      assert_equal @article.title, "new title"
+    end
+
+    it "does not update attributes during invalid save" do
+      refute @article.save_and_process({ title: ""})
+      refute_equal @article.title, "new title"
+    end
   end
 
   describe "#filter" do
     
     it "returns an article" do
-      sleep(3) # https://github.com/kmiscia/site2/issues/13
       expect(Article.filter).to include(@article)
     end
     
@@ -64,7 +96,6 @@ describe Article do
       end
       
       it "returns the article filtering by the category" do
-        sleep(3) # https://github.com/kmiscia/site2/issues/13
         filtered_articles = Article.filter(filter_mask: category_cats.filter_mask)
         expect(filtered_articles).to include(@article)
       end
@@ -78,12 +109,10 @@ describe Article do
       end
       
       it "returns one article filtering by one category" do
-        sleep 3
         expect(Article.filter(filter_mask: category_cats.filter_mask)).to include(@article)
       end
       
       it "returns both articles filtering by both categories" do
-        sleep 3
         filter_mask = category_cats.filter_mask + category_dogs.filter_mask
         filtered_articles = Article.filter(filter_mask: filter_mask)
         expect(filtered_articles).to include(@article)
@@ -97,48 +126,6 @@ describe Article do
     end
   end
 
-  it "is not cropping with no cropping attributes" do
-    refute @article.cropping?
-  end
+  
 
-  it "is not cropping with some cropping attributes" do
-    @article.crop_x = 100
-    refute @article.cropping?
-  end
-
-  it "is cropping when cropping attributes are present" do
-    @article.crop_x = 100
-    @article.crop_y = 100
-    @article.crop_w = 100
-    @article.crop_h = 100
-    assert @article.cropping?
-  end
-
-  it "does not process photo during save when not cropping" do
-    allow(@article).to receive(:cropping?).and_return(false)
-    expect(@article.photo).to_not receive(:reprocess!)
-    assert @article.save_and_process
-  end
-
-  it "does not process photo during save when not valid but are cropping" do
-    allow(@article).to receive(:cropping?).and_return(true)
-    expect(@article.photo).to_not receive(:reprocess!)
-    refute @article.save_and_process({ title: "" })
-  end
-
-  it "does process photo during save when cropping" do
-    allow(@article).to receive(:cropping?).and_return(true)
-    expect(@article.photo).to receive(:reprocess!)
-    assert @article.save_and_process
-  end
-
-  it "updates attributes during valid save" do
-    assert @article.save_and_process({ title: "new title"})
-    assert_equal @article.title, "new title"
-  end
-
-  it "does not update attributes during invalid save" do
-    refute @article.save_and_process({ title: ""})
-    refute_equal @article.title, "new title"
-  end
 end

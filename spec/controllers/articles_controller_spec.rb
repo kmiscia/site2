@@ -13,8 +13,6 @@ RSpec.describe ArticlesController do
     @category_three = create(:category)
     @article_three = create(:article, category: @category_three)
     
-    sleep(3) # https://github.com/kmiscia/site2/issues/13
-    
     session[:filter_mask] = Category.default_filter_mask
   end
   

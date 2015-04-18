@@ -1,5 +1,8 @@
 require "rails_helper"
 
+# NOTE: Testing private methods here basically as practice and to 
+# explore the rpsec API. These are neither good tests or should 
+# even really exist.
 describe Twitter::Oauth do
 
   describe ".body" do
@@ -9,10 +12,6 @@ describe Twitter::Oauth do
       expect(response.first["text"]).not_to be_empty
     end
   end
-
-  # NOTE: Testing private methods here basically as practice and to 
-  # explore the rpsec API. These are neither good tests or should 
-  # even really exist.
 
   describe ".call" do
     it "makes a request with the access token" do

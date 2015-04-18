@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150328212401) do
   create_table "comments", force: true do |t|
     t.text     "body",       null: false
     t.integer  "article_id", null: false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

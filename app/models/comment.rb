@@ -4,6 +4,8 @@ class Comment < ActiveRecord::Base
   
   after_create :send_email
   
+  validates_presence_of :body
+  
   private
 
   def send_email
