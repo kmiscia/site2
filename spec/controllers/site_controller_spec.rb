@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe SiteController do
 
   before(:each) do
-    @article = create(:article)
+    @article = create_article
   end
 
   describe "GET index" do

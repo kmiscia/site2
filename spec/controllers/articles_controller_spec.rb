@@ -5,13 +5,13 @@ RSpec.describe ArticlesController do
   before(:each) do
     
     @category_one = create(:category)
-    @article_one = create(:article, category: @category_one)
+    @article_one = create_article(category: @category_one)
     
     @category_two = create(:category)
-    @article_two = create(:article, category: @category_two)
+    @article_two = create_article(category: @category_two)
     
     @category_three = create(:category)
-    @article_three = create(:article, category: @category_three)
+    @article_three = create_article(category: @category_three)
     
     session[:filter_mask] = Category.default_filter_mask
   end

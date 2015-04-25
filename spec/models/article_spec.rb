@@ -3,7 +3,7 @@ require_relative "../support/thinking_sphinx"
 
 describe Article do
 
-  before(:each) { @article = create(:article) }
+  before(:each) { @article = create_article }
 
   let(:category_cats) { create(:category, name: "Cats") }
   let(:category_dogs) { create(:category, name: "Dogs") }
@@ -87,8 +87,7 @@ describe Article do
     
     context "when in a category" do
       before(:each) do
-        @article.update_attributes(category: category_cats, delta: true)
-        ThinkingSphinx::Test.index 'article_core', 'article_delta'
+        update_article(@article, category: category_cats, delta: true)
       end
       
       it "returns no articles filtering by another category" do
@@ -103,9 +102,8 @@ describe Article do
     
     context "when in multiple articles and categories" do
       before(:each) do
-        @article.update_attributes(category: category_cats, delta: true)
-        @article_two = create(:article, category: category_dogs)
-        ThinkingSphinx::Test.index 'article_core', 'article_delta'
+        update_article(@article, category: category_cats, delta: true)
+        @article_two = create_article(category: category_dogs)
       end
       
       it "returns one article filtering by one category" do
