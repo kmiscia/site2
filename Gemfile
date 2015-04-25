@@ -44,6 +44,7 @@ group :test do
   gem 'shoulda-context'
   gem 'simplecov', :require => false
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 # System gems
@@ -56,4 +57,3 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
-gem 'rails-observers'
