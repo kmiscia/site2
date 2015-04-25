@@ -7,7 +7,7 @@
       <% if page == @articles.current_page %>
         <span class="current"><%= page %></span>
       <% else %>
-        <%= link_to( page.to_s, {:controller => 'articles', :action => 'index', :page => page, :remote => true }) %>
+        <%= link_to( page.to_s, {:controller => 'articles', :action => 'index', :page => page, :remote => true }, { id: "page_#{page}", title: "Page #{page}" }) %>
       <% end %>
     <% end %>
   </div>
