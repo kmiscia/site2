@@ -1,0 +1,18 @@
+default: &DEFAULT
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: <%= Rails.application.secrets.database_username %>
+  password: <%= Rails.application.secrets.database_password %>
+  
+development:
+  <<: *DEFAULT
+  database: site_development
+  
+test:
+  <<: *DEFAULT
+  database: site_test
+  
+production:
+  <<: *DEFAULT
+  database: site_production

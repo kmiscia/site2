@@ -13,7 +13,7 @@
 
 # Ignore files with credentials in them
 config/database.yml
-config/secrets.yml
+#config/secrets.yml
 
 config/development.sphinx.conf
 config/test.sphinx.conf

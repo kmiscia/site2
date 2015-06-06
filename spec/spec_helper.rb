@@ -2,8 +2,11 @@ require 'devise'
 require "paperclip/matchers"
 require 'simplecov'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
 
 SimpleCov.start 'rails'
+
+Capybara.javascript_driver = :poltergeist
 
 Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
 
