@@ -144,7 +144,7 @@ a img {border: none; }
     vertical-align: middle;
   }
 
-  #menu li.social_media {
+  #menu li.social_media_menu_item {
     margin: 21px 10px 10px 0;
   }
 
@@ -474,7 +474,7 @@ div.sidebar_window {
   background-position: 0px -40px;
 }
 
-.social_media div {
+.social_media_menu_item div {
   background-position: 0px 0px;
   background-repeat:no-repeat;
   width:24px;

@@ -7,7 +7,7 @@ var social_media_out = function(el){
 }
 
 $(document).ready(function() {
-  $(".social_media").on('mouseover mouseout', function(evt) {
+  $(".social_media_menu_item").on('mouseover mouseout', function(evt) {
     evt.type == 'mouseover' ? social_media_in(evt.target) : social_media_out(evt.target);
   });
 });

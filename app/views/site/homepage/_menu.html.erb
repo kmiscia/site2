@@ -5,16 +5,16 @@
 		<li><%= link_to(image_tag("application/headings/images.gif"), "/images", :alt => 'Interesting images from my travels')%></li>
 		<li><%= link_to(image_tag("application/headings/miscellany.gif"), '/page/miscellany', :alt => 'Absolutely nothing useful what so ever')%></li>
 		<li><%= image_tag("application/headings/contact.gif")%></li>
-    <li class="social_media">
+    <li class="social_media_menu_item">
       <%= render :partial => "site/homepage/social_media", :locals => { :name => 'twitter', :url => 'http://twitter.com/#!/misch331' } %>
     </li>
-    <li class="social_media">
+    <li class="social_media_menu_item">
       <%= render :partial => "site/homepage/social_media", :locals => { :name => 'facebook', :url => 'https://www.facebook.com/profile.php?id=1607419777' } %>
     </li>
-		<li class="social_media">
+		<li class="social_media_menu_item">
       <%= render :partial => "site/homepage/social_media", :locals => { :name => 'gmail', :url => 'mailto:kmiscia@gmail.com' } %>
     </li>
-		<li class="social_media">
+		<li class="social_media_menu_item">
       <%= render :partial => "site/homepage/social_media", :locals => { :name => 'git', :url => 'http://www.github.com/kmiscia' } %>
     </li>
 	</ul>

@@ -194,7 +194,11 @@ $(document).ready(function(){
       var intro = '<p class="tweet_intro">'+s.intro_text+'</p>';
       var outro = '<p class="tweet_outro">'+s.outro_text+'</p>';
       var loading = $('<p class="loading">'+s.loading_text+'</p>');
-
+      
+      // Kind of a hack to determine what the fingerprinted asset url is
+      // of the divider image from inside an external JS file.
+      var tweetDividerUrl = $(widget).data("divider-url");
+      
       if(s.username && typeof(s.username) == "string"){
         s.username = [s.username];
       }
@@ -207,7 +211,7 @@ $(document).ready(function(){
           list.empty();
           var tweets = $.map(data.results || data, extract_template_data);
           tweets = remove_duplicate_users($.grep(tweets, s.filter)).sort(s.comparator).slice(0, s.count);
-          list.append($.map(tweets, function(o,idx) { return "<li>" + t(s.template, o) + "</li>" + ( tweets.length - 1 != idx ? "<img src='/assets/application/twitter_divider.gif'/>" : ""); }).join('')).
+          list.append($.map(tweets, function(o,idx) { return "<li>" + t(s.template, o) + "</li>" + ( tweets.length - 1 != idx ? "<img src='" + tweetDividerUrl + "'/>" : ""); }).join('')).
               children('li:first').addClass('tweet_first').end().
               children('li:odd').addClass('tweet_even').end().
               children('li:even').addClass('tweet_odd');
