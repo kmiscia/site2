@@ -12,3 +12,14 @@ Category.create(name: "snowboard")
 Category.create(name: "running")
 Category.create(name: "assorted")
 Category.create(name: "web")
+
+Content.delete_all
+Dir.glob(File.join(Rails.root, "config/system_contents/*.html")) do |html_file|
+  Content.create!({
+    name: File.basename(html_file, '.*').titleize,
+    name_slug: File.basename(html_file, '.*'),
+    system: true,
+    display_name: true,
+    body: File.open(html_file, "rb").read
+  })
+end
