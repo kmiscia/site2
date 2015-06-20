@@ -16,3 +16,7 @@ test:
 production:
   <<: *DEFAULT
   database: site_production
+  
+production_debug:
+  <<: *DEFAULT
+  database: site_production
