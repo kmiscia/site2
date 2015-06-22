@@ -1,0 +1,12 @@
+{
+  "uploadOnSave": false,
+  "hostname": "33.33.33.10",
+  "port": "22",
+  "target": "/apps/site",
+  "ignore": [
+    ".git/**"
+  ],
+  "username": "root",
+  "password": "_nova05",
+  "transport": "scp"
+}
