@@ -23,3 +23,11 @@ Dir.glob(File.join(Rails.root, "config/system_contents/*.html")) do |html_file|
     body: File.open(html_file, "rb").read
   })
 end
+
+User.delete_all
+User.create!({
+  username: "kmiscia",
+  email: "kmiscia@miscia.net",
+  password: Rails.application.secrets.default_user_password,
+  password_confirmation: Rails.application.secrets.default_user_password
+})
