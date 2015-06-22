@@ -22,6 +22,9 @@ gem 'whenever', '0.7.3'
 # For nested forms
 gem "cocoon"
 
+# Debugging, yes in all enviro's :)
+gem 'byebug', '3.5.1'
+
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
@@ -32,7 +35,6 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'byebug', '3.5.1'
   gem 'rspec-rails', '3.2.1'
   gem 'capybara'
   gem 'launchy'
