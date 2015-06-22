@@ -1,18 +1,32 @@
-site_email: "kmiscia@miscia.net"
-site_title: "miscia.net"
-site_domain: "miscia.net"
-articles_per_page: 5
+default: &DEFAULT
+  site_email: "kmiscia@miscia.net"
+  site_title: "miscia.net"
+  site_domain: "miscia.net"
+  articles_per_page: 5
+  screenshots_dir: /screenshots
+  google_analytics_key: 'UA-28487446-1'
+  twitter:
+    api_host: "api.twitter.com"
+    api_path: "/1.1/lists/statuses.json"
+    slug: "miscianet"
+    owner_screen_name: "misch331"
+    per_page: 200
+    page: 1
+    include_entities: false
+    include_rts: false
 
-screenshots_dir: /screenshots
-
-google_analytics_key: 'UA-28487446-1'
-
-twitter:
-  api_host: "api.twitter.com"
-  api_path: "/1.1/lists/statuses.json"
-  slug: "miscianet"
-  owner_screen_name: "misch331"
-  per_page: 200
-  page: 1
-  include_entities: false
-  include_rts: false
+development:
+  <<: *DEFAULT
+  host: localhost:3000
+  
+test:
+  <<: *DEFAULT
+  host: localhost:3000
+  
+production:
+  <<: *DEFAULT
+  host: http://miscia.net
+  
+production_debug:
+  <<: *DEFAULT
+  host: http://miscia.net
