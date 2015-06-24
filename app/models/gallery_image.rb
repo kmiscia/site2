@@ -3,7 +3,7 @@ class GalleryImage < ActiveRecord::Base
   belongs_to :gallery
 
   has_attached_file :photo, :styles => ->(a){ HashWithIndifferentAccess.new(YAML.load_file(File.join(Rails.root, "config/gallery_image_styles.yml"))) }
-  process_in_background :photo, processing_image_url: ActionController::Base.helpers.asset_path("processing.gif")
+  process_in_background :photo, processing_image_url: ->(a) { ActionController::Base.helpers.asset_path("admin/processing.gif") }
   
   has_many :annotations, :dependent => :destroy
   accepts_nested_attributes_for :annotations
