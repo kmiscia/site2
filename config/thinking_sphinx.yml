@@ -1,2 +1,5 @@
 test:
   mysql41: 9307
+  
+production:
+  bin_path: '/usr/local/bin'
