@@ -10,7 +10,7 @@ describe GalleryImagePresenter do
 
   describe "#size" do
     it "returns the annotations text formatted" do
-      expect(GalleryImage::STYLES.keys).to include(@presenter.size.to_sym)
+      expect(GalleryImage.photo_styles.keys).to include(@presenter.size.to_sym)
     end
   end
   

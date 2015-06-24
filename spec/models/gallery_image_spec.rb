@@ -9,7 +9,7 @@ describe GalleryImage do
   
   describe ".STYLES" do 
     it "defines styles" do
-      expect(GalleryImage::STYLES).to be_a(Hash)
+      expect(GalleryImage.photo_styles).to be_a(Hash)
     end
   end
 end
