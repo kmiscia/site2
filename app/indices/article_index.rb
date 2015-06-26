@@ -8,8 +8,7 @@ ThinkingSphinx::Index.define :article, :with => :active_record, :delta => true d
   indexes user.username, :as => :user
   indexes user.email, :as => :user_email
   indexes category.name, :as => :category
-  #indexes comment.body, :as => :comment
-  #indexes author.name, :as => :author
+  indexes comments.body, :as => :comment_body
   has category_id, :as => :category_id
   has posted_at
   has created_at
