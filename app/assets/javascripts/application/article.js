@@ -54,5 +54,7 @@ var registerMouseEvents = function(){
 
 $(document).ready(function(){
   registerMouseEvents();
-  $(".article:first").click();
+  $(".article:first")
+    .mouseenter()
+    .click();
 });
