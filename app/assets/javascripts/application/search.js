@@ -20,8 +20,10 @@ $(document).ready(function(){
   });
   
   $('#search_form').bind('ajax:success', function(evt, data, status, xhr){
-    $('#article_list').hide().html(xhr.responseText).fadeIn('slow');
-    registerMouseEvents();
+    $('#article_list').hide().html(xhr.responseText).fadeIn('slow', function(){
+      registerMouseEvents();
+    });
+    
   });
   
 });

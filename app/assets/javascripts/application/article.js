@@ -15,6 +15,10 @@ var articleLeaveListener = function(){
   homepage_image_out(this);
 }
 
+var showFirstArticle = function(){
+  $(".article:first").mouseenter().click();
+}
+
 // Attaching by explicity ID so we can remove by ID later with off()
 // (off() requires the selector to match the on() selector)
 var registerMouseEvents = function(){
@@ -25,8 +29,9 @@ var registerMouseEvents = function(){
   });
 
   $('#article_pagination a').on('ajax:success', function(evt, data, status, xhr){
-    $('#article_list').hide().html(xhr.responseText).fadeIn('slow');
-    registerMouseEvents();
+    $('#article_list').hide().html(xhr.responseText).fadeIn('slow', function(){
+      registerMouseEvents();
+    });
   });
 
   $(".article").on("click", function(){
@@ -54,7 +59,5 @@ var registerMouseEvents = function(){
 
 $(document).ready(function(){
   registerMouseEvents();
-  $(".article:first")
-    .mouseenter()
-    .click();
+  showFirstArticle();
 });
