@@ -25,6 +25,9 @@ gem "cocoon"
 # Debugging, yes in all enviro's :)
 gem 'byebug', '3.5.1'
 
+# Automated DB and file backups
+gem 'backup'
+
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end

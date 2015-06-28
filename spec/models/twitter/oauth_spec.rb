@@ -48,11 +48,11 @@ describe Twitter::Oauth do
     end
     
     it "uses the secret key" do
-      expect(oauth_consumer.key).to eq(Rails.application.secrets.twitter_consumer_key) 
+      expect(oauth_consumer.key).to eq(Rails.application.secrets.twitter["consumer_key"]) 
     end
     
     it "uses the consumer key" do
-      expect(oauth_consumer.secret).to eq(Rails.application.secrets.twitter_consumer_secret) 
+      expect(oauth_consumer.secret).to eq(Rails.application.secrets.twitter["consumer_secret"]) 
     end
   end
   
@@ -61,11 +61,11 @@ describe Twitter::Oauth do
     let(:oauth_token) { Twitter::Oauth.send(:twitter_oauth_access_token) }
     
     it "uses the oauth token" do
-      expect(oauth_token.token).to eq(Rails.application.secrets.twitter_access_token) 
+      expect(oauth_token.token).to eq(Rails.application.secrets.twitter["access_token"]) 
     end
     
     it "uses the oauth secret" do
-      expect(oauth_token.secret).to eq(Rails.application.secrets.twitter_access_token_secret) 
+      expect(oauth_token.secret).to eq(Rails.application.secrets.twitter["access_token_secret"]) 
     end
   end
 

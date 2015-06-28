@@ -32,7 +32,7 @@ module Twitter
       end
       
       def twitter_oauth_consumer
-        OAuth::Consumer.new(Rails.application.secrets.twitter_consumer_key, Rails.application.secrets.twitter_consumer_secret, {
+        OAuth::Consumer.new(Rails.application.secrets.twitter["consumer_key"], Rails.application.secrets.twitter["consumer_secret"], {
           :site => URI::HTTP.build(host: SETTINGS[:twitter][:api_host]),
           :scheme => :header
         })
@@ -40,8 +40,8 @@ module Twitter
       
       def twitter_oauth_access_token
         OAuth::AccessToken.from_hash(twitter_oauth_consumer, {
-          :oauth_token => Rails.application.secrets.twitter_access_token,
-          :oauth_token_secret => Rails.application.secrets.twitter_access_token_secret
+          :oauth_token => Rails.application.secrets.twitter["access_token"],
+          :oauth_token_secret => Rails.application.secrets.twitter["access_token_secret"]
         })
       end
     
