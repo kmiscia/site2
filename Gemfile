@@ -27,6 +27,7 @@ gem 'byebug', '3.5.1'
 
 # Automated DB and file backups
 gem 'backup'
+gem 'fog'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
