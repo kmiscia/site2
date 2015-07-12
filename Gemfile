@@ -25,6 +25,8 @@ gem "cocoon"
 # Debugging, yes in all enviro's :)
 gem 'byebug', '3.5.1'
 
+gem 'symmetric-encryption'
+
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end

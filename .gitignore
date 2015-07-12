@@ -29,5 +29,6 @@ db/sphinx/development/*
 db/sphinx/test/*
 db/sphinx/production/*
 
-
 config/secrets.yml
+
+config/encryption/*
