@@ -31,4 +31,5 @@ db/sphinx/production/*
 
 config/secrets.yml
 
-config/encryption/*
+config/encryption/site_production.iv
+config/encryption/site_production.key
