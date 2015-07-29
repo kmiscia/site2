@@ -28,8 +28,8 @@ Backup::Model.new(:misciadotnetbackup, 'A backup of all user generated content f
   store_with S3 do |s3|
     s3.access_key_id = SECRETS['amazon']['access_key']
     s3.secret_access_key = SECRETS['amazon']['secret_key']
-    s3.region = 'us-east-1'
-    s3.bucket = 'misciadotnet-bu'
+    s3.region = 'us-west-2'
+    s3.bucket = 'misciadotnetbackup'
     s3.path = 'backups'
   end
 
