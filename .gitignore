@@ -22,7 +22,6 @@ config/production.sphinx.conf
 # Ignore test coverage files
 coverage/*
 
-public/tiny_mce/*
 public/assets_test/*
 
 db/sphinx/development/*
