@@ -1,4 +1,6 @@
 <% @galleries.each do |gallery| %>
-  <p><%= gallery.description %></p>
-  <%= render partial: 'gallery', locals: { gallery: gallery } %>
+  <div class="image_gallery">
+    <p class="description"><%= gallery.description %></p>
+    <%= render partial: 'gallery', locals: { gallery: gallery } %>
+  </div>
 <% end %>

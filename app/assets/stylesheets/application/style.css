@@ -516,6 +516,11 @@ div.article_overlay div.label {
   font-size: 18px;
 }
 
+.image_gallery .description {
+	text-align: center;
+	padding: 0px 10px;
+}
+
 .clearfix:after {
    content: ".";
    display: block;
