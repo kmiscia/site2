@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   root :to => 'site#index'
 
   resources :comments
-  resources :articles, :only => :index
+  resources :articles, only: :index
   
   resources :galleries
+  resources :gallery_images, only: :show
   get 'images', to: 'galleries#index'
   
   resources :pages
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
 
     mount Resque::Server.new, at: "/resque"
 
-    devise_for :users, :controllers => {
+    devise_for :users, controllers: {
       registrations: 'admin/users/registrations',
       sessions: 'admin/users/sessions',
       passwords: 'admin/users/passwords'
@@ -36,9 +37,9 @@ Rails.application.routes.draw do
     resources :galleries
     resources :gallery_images
 
-    get 'jobs', :to => "jobs#index"
+    get 'jobs', to: "jobs#index"
 
-    root :to => "articles#index"
+    root to: "articles#index"
   end
 
 end
