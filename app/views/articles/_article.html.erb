@@ -10,9 +10,9 @@
   		<span class="date"><%= h(time_format(article.posted_at)) %></span>
   		<span class="posted">Posted by <span class="dyn_info"><%= article.user.username %></span><% unless article.category.nil? %> in <span class="dyn_info"><%= article.category.name %></span><% end %></span>
   	</p>
-    <p><%= article.body.html_safe %></p>
+    <p <% if article_index == 1 %>class="article_text"<% end %>><%= article.body.html_safe %></p>
     <p class="links">
-  	  <%= link_to "Read Article", article.url, :class => "more", :target => "_blank" %>
+  	  <%= link_to "Follow the link...", article.url, :class => "more", :target => "_blank" %>
   	  <% comments_label = "Show Comments " << "(" << article.comments.length.to_s << ")" %>
   	  <%= link_to comments_label, "", :class => "comments" %>
     </p>

@@ -1,3 +1,11 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.article_text').readmore({
+      moreLink: '<a href="#" style="padding-left: 1px">Read more</a>'
+    });
+  })
+</script>
+
 <div id="article_list">
   <% @articles.each_with_index do |article,index| -%>
   	<%= render :partial => "articles/article", :locals => {:article => article, :article_index => index + 1 }%>
