@@ -17,7 +17,7 @@ class AnnotationPresenter < SimpleDelegator
   private
   
   def gps_link_url
-    "http://maps.google.com?ll=#{gps_coordinates}&z=14"
+    "http://maps.google.com/maps/@#{latitude},#{longitude},15z"
   end
   
   def gps_coordinates
