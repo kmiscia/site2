@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :pages
   get '/page/:name_slug', to: 'pages#show'
   
-  get '/technology_stack', to: 'technology_stack#index'
+  get '/projects', { controller: 'pages', action: 'show', name_slug: 'projects' }
   
   namespace :site do
     get 'tweets'
