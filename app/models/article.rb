@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
     styles: { cropped: "100%" },
     processors: [ :article_cropper ]
 
-  validates_presence_of :title, :body, :url
+  validates_presence_of :title, :body
   validates_uniqueness_of :title
 
   validates_attachment_presence :photo

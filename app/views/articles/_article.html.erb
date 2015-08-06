@@ -11,8 +11,12 @@
   		<span class="posted">Posted by <span class="dyn_info"><%= article.user.username %></span><% unless article.category.nil? %> in <span class="dyn_info"><%= article.category.name %></span><% end %></span>
   	</p>
     <p <% if article_index == 1 %>class="article_text"<% end %>><%= article.body.html_safe %></p>
-    <p class="links">
-  	  <%= link_to "Follow the link...", article.url, :class => "more", :target => "_blank" %>
+    <p class="links">  	  
+      <% if article.url.present? %>
+        <%= link_to "Follow the link", article.url, :class => "more", :target => "_blank" %>
+      <% else %>
+        <%= link_to "Read the article", article_path(article), :class => "more", :target => "_blank" %>
+      <% end %>
   	  <% comments_label = "Show Comments " << "(" << article.comments.length.to_s << ")" %>
   	  <%= link_to comments_label, "", :class => "comments" %>
     </p>
