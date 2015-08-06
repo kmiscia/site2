@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root :to => 'site#index'
 
   resources :comments
-  resources :articles, only: :index
+  resources :articles, only: [:index, :show]
   
   resources :galleries
   resources :gallery_images, only: :show

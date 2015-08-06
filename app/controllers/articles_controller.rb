@@ -1,9 +1,11 @@
 class ArticlesController < ApplicationController
 
+  layout 'application', :except => :index
+
   respond_to :html
 
-  before_filter :calculate_filter_mask
-  before_filter :require_xhr
+  before_filter :calculate_filter_mask, :only => :index
+  before_filter :require_xhr, :only => :index
 
   def index
     
@@ -17,6 +19,10 @@ class ArticlesController < ApplicationController
       locals: { articles: @articles }, 
       layout: false, 
       status: :created
+  end
+  
+  def show
+    @article = Article.find(params[:id])
   end
   
   private
