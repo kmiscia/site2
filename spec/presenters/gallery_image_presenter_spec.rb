@@ -10,7 +10,7 @@ describe GalleryImagePresenter do
 
   describe "#size" do
     it "returns the annotations text formatted" do
-      expect(GalleryImage.photo_styles.keys).to include(@presenter.size.to_sym)
+      expect(GalleryImage.photo_styles.keys).to include(@presenter.size)
     end
   end
   
@@ -30,7 +30,7 @@ describe GalleryImagePresenter do
 
   describe "#annotations_text" do
     it "returns the annotations text formatted" do
-      expect(@presenter.annotations_text).to eql("This is the annotations body! <a href=\"http://maps.google.com?ll=(39&amp;deg; 58&#39; 53&quot; N, -75&amp;deg; 47&#39; 59&quot; W)&amp;z=14\" target=\"_blank\">(39&deg; 58' 53\" N, -75&deg; 47' 59\" W)</a>")
+      expect(@presenter.annotations_text).to eql("This is the annotations body! <a href=\"http://maps.google.com/maps/@39.981592,-75.200093,15z\" target=\"_blank\">(39&deg; 58' 53\" N, -75&deg; 47' 59\" W)</a>")
     end
   end
 

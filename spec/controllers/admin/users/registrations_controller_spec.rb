@@ -1,3 +1,6 @@
+# User registration is currently disabled. 
+
+=begin
 require 'rails_helper'
 
 RSpec.describe Admin::Users::RegistrationsController do
@@ -26,3 +29,4 @@ RSpec.describe Admin::Users::RegistrationsController do
   end
 
 end
+=end
