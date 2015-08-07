@@ -21,7 +21,9 @@
   	  <%= link_to comments_label, "", :class => "comments" %>
     </p>
     <div class="comments-container">
-  	  <%= render :partial => "comments/list", :locals => {:comments => article.comments }%>
+      <% if article.comments.present? %>
+  	    <%= render :partial => "comments/list", :locals => {:comments => article.comments }%>
+      <% end %>
   	  <%= render :partial => "comments/add", :locals => {:article => article }%>
     </div>
   </div>
