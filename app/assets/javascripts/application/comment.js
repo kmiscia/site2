@@ -2,9 +2,12 @@ $(document).ready(function(){
 
   $(".comments").on("click", function(){
     $comments_container = $(".comments-container", $(this).parents(".article_body"))
-    $comments_container.is(':visible') ? $comments_container.slideUp() : $comments_container.slideDown();
-  
-    $(this).html($(this).html().replace(/^[a-zA-Z]{4}/, $comments_container.is(':visible') ? 'Hide' : 'Show'));
+    
+    var hideComments = $comments_container.is(':visible');
+    
+    hideComments ? $comments_container.slideUp() : $comments_container.slideDown();
+    $(this).html($(this).html().replace(/^[a-zA-Z]{4}/, hideComments ? 'Show' : 'Hide'));
+    
     return false;
   });
 
