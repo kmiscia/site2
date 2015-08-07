@@ -1,3 +1,11 @@
-<div class="page_section" style="font-size: 16px">
-  <%= @article.body.html_safe %>
+<div class="article_container">
+  <div class="page_section">
+    <%= @article.body.html_safe %>
+  </div>
+  <p>...</p>
+  <div class="comments-container" style="display: block;">
+    <p class="comments-header">Comments</p>
+    <%= render partial: 'comments/list', locals: { comments: @article.comments } %>
+    <%= render partial: 'comments/add', locals: { article: @article } %>
+  </div>
 </div>

@@ -543,6 +543,18 @@ html[xmlns] .clearfix {
    overflow: visible;
 }
 
-#technology_gallery_container td,th {
-  vertical-align:text-top;
+.article_container .page_section {
+	font-size: 16px;
+}
+
+.article_container .comments-container {
+	display: block;
+}
+
+	.article_container .comments-container fieldset{
+		padding-left: 0px;
+	}
+
+.article_container .comments-header {
+	font-size: 16px;
 }
