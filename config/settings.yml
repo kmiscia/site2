@@ -32,8 +32,8 @@ test:
   
 production:
   <<: *DEFAULT
-  host: http://33.33.33.10
+  host: http://www.miscia.net
   
 production_debug:
   <<: *DEFAULT
-  host: http://miscia.net
+  host: http://www.miscia.net
