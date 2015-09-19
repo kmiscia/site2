@@ -19,7 +19,7 @@ Dir.glob(File.join(Rails.root, "config/system_contents/*.html")) do |html_file|
     name: File.basename(html_file, '.*').titleize,
     name_slug: File.basename(html_file, '.*'),
     system: true,
-    display_name: true,
+    display_name: !html_file.include?('resume'), # Total hack for now...
     body: File.open(html_file, "rb").read
   })
 end
