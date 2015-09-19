@@ -23,6 +23,8 @@ config/production.sphinx.conf
 coverage/*
 
 public/assets_test/*
+public/system/articles/photos/*
+public/system/gallery_images/*
 
 db/sphinx/development/*
 db/sphinx/test/*
