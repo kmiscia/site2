@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/page/:name_slug', to: 'pages#show'
   
   get '/projects', { controller: 'pages', action: 'show', name_slug: 'projects' }
+  get '/resume', { controller: 'pages', action: 'show', name_slug: 'resume' }
   
   namespace :site do
     get 'tweets'
