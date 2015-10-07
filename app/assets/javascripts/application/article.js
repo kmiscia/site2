@@ -1,3 +1,4 @@
+/*
 var homepage_image_over = function(el){
   $(".overlay_el", $(el)).show();
 }
@@ -15,13 +16,11 @@ var articleLeaveListener = function(){
   homepage_image_out(this);
 }
 
-var showFirstArticle = function(){
-  $(".article:first").mouseenter().click();
-}
 
 // Attaching by explicity ID so we can remove by ID later with off()
 // (off() requires the selector to match the on() selector)
 var registerMouseEvents = function(){
+  
   $('.article').each(function(index, element){
     $('#' + element.id)
       .on('mouseenter', articleEnterListener)
@@ -59,5 +58,6 @@ var registerMouseEvents = function(){
 
 $(document).ready(function(){
   registerMouseEvents();
-  showFirstArticle();
+  $(".article:first").mouseenter().click();
 });
+*/

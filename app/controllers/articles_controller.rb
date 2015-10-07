@@ -2,10 +2,10 @@ class ArticlesController < ApplicationController
 
   layout 'application', :except => :index
 
-  respond_to :html
+  respond_to :html, :json
 
   before_filter :calculate_filter_mask, :only => :index
-  before_filter :require_xhr, :only => :index
+  #before_filter :require_xhr, :only => :index
 
   def index
     
@@ -15,10 +15,7 @@ class ArticlesController < ApplicationController
       page: params[:page]
     })
 
-    render partial: "/articles/list", 
-      locals: { articles: @articles }, 
-      layout: false, 
-      status: :created
+    respond_with @articles
   end
   
   def show

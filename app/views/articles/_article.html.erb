@@ -1,30 +1,26 @@
-<div class="article_wrapper">
-  <div id="article_<%= article.id %>" class="article">
-    <div class="article_overlay" style="background-image:url(<%= article.photo.url(:cropped, timestamp: false) %>)">
+<div class="article_wrapper" ng-repeat="article in articleCtrl.articles" on-finish-render="articlesRendered">
+  <div id="article_{{ article.id }}" class="article" ng-click="click($event)">
+    <div class="article_overlay" style="background-image:url({{ article.homepage_image_url }}">
       <div class="overlay_el whitebg"></div>
-      <div class="overlay_el label" style="<%= article_title_font(article_index)%>"><%= article.title %></div>
+      <div class="overlay_el label" style="{{ articleCtrl.font($index) }}">{{ article.title }}</div>
     </div>
   </div>
   <div class="article_body">
   	<p class="meta">
-  		<span class="date"><%= h(time_format(article.posted_at)) %></span>
-  		<span class="posted">Posted by <span class="dyn_info"><%= article.user.username %></span><% unless article.category.nil? %> in <span class="dyn_info"><%= article.category.name %></span><% end %></span>
+  		<span class="date">{{ article.posted_at }}</span>
+  		<span class="posted">
+        Posted by <span class="dyn_info">{{ article.user.username }}</span>
+        <span ng-show="article.category" class="dyn_info">in {{ article.category.name }}</span>
   	</p>
-    <p <% if article_index == 1 %>class="article_text"<% end %>><%= article.body.html_safe %></p>
+    <p ng-class="{ article_text: $index == 1 }" ng-bind-html="article.body | htmlSafe"></p>
     <p class="links">  	  
-      <% if article.url.present? %>
-        <%= link_to "Follow the link", article.url, :class => "more", :target => "_blank" %>
-      <% else %>
-        <%= link_to "Read the article", article_path(article), :class => "more", :target => "_blank" %>
-      <% end %>
-  	  <% comments_label = "Show Comments " << "(" << article.comments.length.to_s << ")" %>
-  	  <%= link_to comments_label, "", :class => "comments" %>
+      <a ng-if="article.url" href class="more" target="_blank">Follow the link</a>
+      <a ng-if="!article.url" href class="more" target="_blank">Read the article</a>
+      <a href class="comments">Show Comments ({{ article.comments.length || 0 }})</a>
     </p>
     <div class="comments-container">
-      <% if article.comments.present? %>
-  	    <%= render :partial => "comments/list", :locals => {:comments => article.comments }%>
-      <% end %>
-  	  <%= render :partial => "comments/add", :locals => {:article => article }%>
+  	  <%= render :partial => "comments/list"%>
+  	  <%#= render :partial => "comments/add"%>
     </div>
   </div>
 </div>

@@ -1,6 +1,8 @@
 <li>  
   <p>
-    <span class="comment_description"><%= comment.user ? comment.user.username : "Guest" %> @ <%= time_format(comment.created_at) %> ></span>
-    "<%= h(comment.body) %>"
+    <span class="comment_description">
+      {{ comment.user ? comment.user.username : 'Guest' }} @ {{ comment.created_at }}
+    </span>
+    "{{ comment.body }}"
   </p>  
 </li>

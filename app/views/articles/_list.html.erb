@@ -6,9 +6,6 @@
   })
 </script>
 
-<div id="article_list">
-  <% @articles.each_with_index do |article,index| -%>
-  	<%= render :partial => "articles/article", :locals => {:article => article, :article_index => index + 1 }%>
-  <% end -%>
-  <%= render :partial => "articles/pagination", :locals => {:articles_per_page => @articles_per_page, :total_articles => @total_articles }%>
+<div id="article_list" ng-controller="ArticleController as articleCtrl">
+  <%= render :partial => "articles/article" %>
 </div>
