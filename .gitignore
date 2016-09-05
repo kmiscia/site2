@@ -34,3 +34,5 @@ config/secrets.yml
 
 config/encryption/site_production.iv
 config/encryption/site_production.key
+
+app/assets/javascripts/*
