@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 # Thinking Sphinx
-gem 'thinking-sphinx', '3.1.3'
-gem 'mysql2','0.3.18'
+gem 'thinking-sphinx', '3.3.0'
+gem 'mysql2', '~> 0.3.18'
 
 # Image attachement and background processing
 gem 'resque'
@@ -37,7 +37,7 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'rspec-rails', '3.2.1'
+  gem 'rspec-rails', '3.6.0'
   gem 'capybara'
   gem 'launchy'
 end
@@ -52,7 +52,7 @@ group :test do
 end
 
 # System gems
-gem 'rails', '4.1.1'
+gem 'rails', '4.2.6'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
