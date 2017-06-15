@@ -11,10 +11,6 @@
 /log/*
 /tmp
 
-# Ignore files with credentials in them
-#config/database.yml
-#config/secrets.yml
-
 config/development.sphinx.conf
 config/test.sphinx.conf
 config/production.sphinx.conf
@@ -29,7 +25,5 @@ public/system/gallery_images/*
 db/sphinx/development/*
 db/sphinx/test/*
 db/sphinx/production/*
-
-config/secrets.yml
 
 app/assets/javascripts/*
