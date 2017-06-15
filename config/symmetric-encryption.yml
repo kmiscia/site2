@@ -54,11 +54,11 @@ release:
       # For encrypted secrets.yml locally...
       #key_filename: /Users/kmiscia/Workspace/site2/config/encryption/site_production.key
       #iv_filename:  /Users/kmiscia/Workspace/site2/config/encryption/site_production.key
-      
+
       # For decrypting secrets.yml on production
-      key_filename: /apps/site/config/encryption/site_production.key
-      iv_filename:  /apps/site/config/encryption/site_production.key
-      
+      key_filename: /var/app/current/config/encryption/site_production.key
+      iv_filename:  /var/app/current/config/encryption/site_production.key
+
       cipher_name:  aes-256-cbc
       # Base64 encode encrypted data without newlines
       encoding:     :base64strict
@@ -103,15 +103,15 @@ production:
     -
       # Filename containing Symmetric Encryption Key encrypted using the
       # RSA public key derived from the private key above
-      
+
       # For encrypted secrets.yml locally...
       #key_filename: /Users/kmiscia/Workspace/site2/config/encryption/site_production.key
       #iv_filename:  /Users/kmiscia/Workspace/site2/config/encryption/site_production.key
-      
+
       # For decrypting secrets.yml on production
-      key_filename: /apps/site/config/encryption/site_production.key
-      iv_filename:  /apps/site/config/encryption/site_production.key
-      
+      key_filename: /var/app/current/config/encryption/site_production.key
+      iv_filename:  /var/app/current/config/encryption/site_production.key
+
       cipher_name:  aes-256-cbc
       # Base64 encode encrypted data without newlines
       encoding:     :base64strict
