@@ -1,22 +1,22 @@
 default: &DEFAULT
   adapter: postgresql
   encoding: unicode
-  host: localhost
+  host: <%= Rails.application.secrets.database["host"] %>
   username: <%= Rails.application.secrets.database["username"] %>
   password: <%= Rails.application.secrets.database["password"] %>
-  
+
 development:
   <<: *DEFAULT
   database: site_development
-  
+
 test:
   <<: *DEFAULT
   database: site_test
-  
+
 production:
   <<: *DEFAULT
   database: site_production
-  
+
 production_debug:
   <<: *DEFAULT
   database: site_production

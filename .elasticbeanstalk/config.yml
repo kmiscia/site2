@@ -1,0 +1,13 @@
+branch-defaults:
+  master:
+    environment: site2
+    group_suffix: null
+global:
+  application_name: site2
+  branch: null
+  default_ec2_keyname: kmiscia-key-pair-us-east
+  default_platform: Ruby 2.3 (Puma)
+  default_region: us-east-1
+  profile: personal
+  repository: null
+  sc: git
