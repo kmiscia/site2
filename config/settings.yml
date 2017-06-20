@@ -25,15 +25,15 @@ default: &DEFAULT
 development:
   <<: *DEFAULT
   host: http://localhost:3000
-  
+
 test:
   <<: *DEFAULT
   host: http://localhost:3000
-  
+
 production:
   <<: *DEFAULT
   host: http://www.miscia.net
-  
+
 production_debug:
   <<: *DEFAULT
   host: http://www.miscia.net
